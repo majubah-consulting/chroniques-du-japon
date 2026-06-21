@@ -219,6 +219,44 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,.voie-panel:focus-
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ============ Hero « scroll-expand » : Fuji + samouraï ============ */
+.rezo-hero{position:relative;height:240vh;background:#0a141f}
+.rezo-sticky{position:sticky;top:0;height:100vh;overflow:hidden}
+.rezo-bg{position:absolute;inset:0;z-index:1;background:url('galerie/montfuji.webp') center/cover no-repeat;transform:scale(1.06);will-change:opacity,transform}
+.rezo-veil{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 26%,rgba(10,20,31,.10),rgba(10,20,31,.5) 66%,rgba(8,16,26,.88))}
+.rezo-media{position:absolute;z-index:3;top:50%;left:50%;margin:0;width:min(94vw,149vh);aspect-ratio:16/9;
+  border-radius:20px;overflow:hidden;transform:translate(-50%,-50%) scale(.34);transform-origin:center;
+  box-shadow:0 34px 90px rgba(0,0,0,.6);border:1px solid rgba(201,164,78,.28);will-change:transform,border-radius}
+.rezo-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.rezo-media .mveil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top,rgba(8,16,26,.5),rgba(8,16,26,0) 46%)}
+.rezo-title{position:absolute;z-index:4;top:50%;left:50%;transform:translate(-50%,-50%);margin:0;text-align:center;
+  color:#f6efdf;font-family:'Shippori Mincho',serif;font-weight:700;line-height:1.05;font-size:clamp(34px,7.4vw,88px);
+  letter-spacing:.01em;text-shadow:0 4px 30px rgba(0,0,0,.65);pointer-events:none;display:flex;flex-direction:column;gap:.02em;will-change:opacity}
+.rezo-title .w{display:block;will-change:transform}
+.rezo-cue{position:absolute;z-index:4;left:50%;bottom:7vh;transform:translateX(-50%);display:flex;flex-direction:column;
+  align-items:center;gap:7px;color:#ece1c8;font-size:12px;letter-spacing:.28em;text-transform:uppercase;pointer-events:none;text-align:center}
+.rezo-cue .chev{font-size:22px;line-height:1;animation:nudge 1.7s ease-in-out infinite}
+.rezo-skip{position:absolute;z-index:5;right:clamp(14px,3vw,34px);bottom:clamp(14px,3vh,30px);font-family:'EB Garamond',serif;
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#ece1c8;background:rgba(12,22,34,.5);
+  border:1px solid rgba(201,164,78,.4);padding:8px 16px;border-radius:999px;cursor:pointer;
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:background .3s ease,color .3s ease,transform .3s ease}
+.rezo-skip:hover,.rezo-skip:focus-visible{background:var(--seal);color:var(--cream);outline:none;transform:translateY(-2px)}
+.rezo-intro{position:relative;z-index:2;background:var(--washi);text-align:center;max-width:760px;margin:0 auto;padding:clamp(56px,9vh,104px) clamp(22px,6vw,40px) 0}
+.rezo-intro .subtitle{font-style:italic;font-size:clamp(18px,2.2vw,24px);color:var(--seal-2);margin:14px 0 22px;text-wrap:balance}
+.rezo-intro .intro{font-size:clamp(16px,1.5vw,18px);line-height:1.75;color:var(--ink-2);max-width:60ch;margin:0 auto}
+.rezo-intro .scroll-hint{margin-top:40px}
+@media(max-width:768px){.rezo-hero{height:200vh}.rezo-media{border-radius:16px}}
+@media (prefers-reduced-motion: reduce){
+  .rezo-hero{height:100vh}
+  .rezo-sticky{position:relative}
+  .rezo-bg{transform:none;opacity:1}
+  .rezo-media{transform:translate(-50%,-50%) scale(.8);border-radius:16px}
+  .rezo-title{transform:translate(-50%,-50%)}
+  .rezo-title .w{transform:none!important}
+  .rezo-cue{display:none}
+}
 </style>
 </head>
 
@@ -247,18 +285,32 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,.voie-panel:focus-
 
 <main>
 
-<!-- ============ Hero ============ -->
-<header class="hero">
-  <span class="hero-kanji jp" aria-hidden="true">道</span>
-  <div class="hero-inner">
-    <span class="eyebrow">道 · Ressources</span>
-    <h1 class="hero-title">Les voies japonaises</h1>
-    <div class="vapor-title" data-vapor hidden aria-hidden="true"></div>
-    <p class="subtitle">Six chemins pour comprendre l'esprit, le geste et la beauté du Japon.</p>
-    <p class="intro">Du sabre à l'encre, de l'acier au jardin, ces six disciplines partagent une même exigence : faire de la pratique un chemin intérieur. Chacune est une <em>voie</em> (un <span class="jp">道</span>, un <em>dō</em>) que l'on parcourt patiemment, le regard tourné autant vers le geste que vers soi-même.</p>
-    <a class="scroll-hint" href="#accordeon">Explorer les six voies<span aria-hidden="true">⌄</span></a>
+<!-- ============ Hero « scroll-expand » : Fuji + samouraï ============ -->
+<header class="rezo-hero" id="rezo-hero">
+  <div class="rezo-sticky">
+    <div class="rezo-bg" data-rezo-bg aria-hidden="true"></div>
+    <div class="rezo-veil" aria-hidden="true"></div>
+    <figure class="rezo-media" data-rezo-media>
+      <img src="galerie/masque.webp" width="1672" height="941" decoding="async"
+           alt="Samouraï en armure et casque kabuto sous la pleine lune, le mont Fuji en arrière-plan">
+      <span class="mveil" aria-hidden="true"></span>
+    </figure>
+    <h1 class="rezo-title" data-rezo-title>
+      <span class="w w1">Les</span>
+      <span class="w w2">voies japonaises</span>
+    </h1>
+    <div class="rezo-cue" data-rezo-cue aria-hidden="true">道 · Défilez pour révéler<span class="chev">⌄</span></div>
+    <button class="rezo-skip" type="button" data-rezo-skip>Passer l'intro</button>
   </div>
 </header>
+
+<!-- ============ Introduction ============ -->
+<section class="rezo-intro reveal" aria-label="Introduction aux voies japonaises">
+  <span class="eyebrow">道 · Ressources</span>
+  <p class="subtitle">Six chemins pour comprendre l'esprit, le geste et la beauté du Japon.</p>
+  <p class="intro">Du sabre à l'encre, de l'acier au jardin, ces six disciplines partagent une même exigence : faire de la pratique un chemin intérieur. Chacune est une <em>voie</em> (un <span class="jp">道</span>, un <em>dō</em>) que l'on parcourt patiemment, le regard tourné autant vers le geste que vers soi-même.</p>
+  <a class="scroll-hint" href="#accordeon">Explorer les six voies<span aria-hidden="true">⌄</span></a>
+</section>
 
 <div class="blade-sep" aria-hidden="true"></div>
 
@@ -836,6 +888,65 @@ function voieFallback(img){
   } else { startLoop(); }
 
   setTimeout(function(){ if (state === 'static'){ vapProg = 0; state = 'vaporizing'; startLoop(); } }, 1400);
+})();
+
+/* ============================================================
+   Hero « scroll-expand » : au défilement, le Fuji s'estompe, le
+   samouraï grandit jusqu'à remplir l'écran et le titre s'écarte.
+   Piloté par le scroll natif (sticky), donc fluide et accessible.
+   Sans JS ou en mouvement réduit : hero statique (voir CSS).
+   ============================================================ */
+(function(){
+  var hero = document.getElementById('rezo-hero');
+  if (!hero) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var media = hero.querySelector('[data-rezo-media]');
+  var bg    = hero.querySelector('[data-rezo-bg]');
+  var title = hero.querySelector('[data-rezo-title]');
+  var w1    = hero.querySelector('.w1');
+  var w2    = hero.querySelector('.w2');
+  var cue   = hero.querySelector('[data-rezo-cue]');
+  var skip  = hero.querySelector('[data-rezo-skip]');
+  var clamp = function(v,a,b){ return v < a ? a : (v > b ? b : v); };
+  var ticking = false, lastP = -1;
+
+  function render(){
+    ticking = false;
+    var rect = hero.getBoundingClientRect();
+    var span = rect.height - window.innerHeight;
+    var p = span > 0 ? clamp(-rect.top / span, 0, 1) : 0;
+    if (Math.abs(p - lastP) < 0.0008) return;
+    lastP = p;
+
+    if (media){
+      media.style.transform = 'translate(-50%,-50%) scale(' + (0.34 + p * 0.66).toFixed(4) + ')';
+      media.style.borderRadius = (20 - p * 14).toFixed(1) + 'px';
+    }
+    if (bg){
+      bg.style.opacity = (1 - p).toFixed(3);
+      bg.style.transform = 'scale(' + (1.06 + p * 0.07).toFixed(4) + ')';
+    }
+    if (title){
+      var shift = (p * 62).toFixed(2);                 // en vw
+      if (w1) w1.style.transform = 'translateX(-' + shift + 'vw)';
+      if (w2) w2.style.transform = 'translateX(' + shift + 'vw)';
+      title.style.opacity = clamp(1 - (p - 0.12) / 0.5, 0, 1).toFixed(3);
+    }
+    if (cue) cue.style.opacity = clamp(1 - p * 2.2, 0, 1).toFixed(3);
+  }
+
+  function onScroll(){ if (!ticking){ ticking = true; requestAnimationFrame(render); } }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  if (skip){
+    skip.addEventListener('click', function(){
+      var acc = document.getElementById('accordeon');
+      if (acc) acc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+  render();
 })();
 </script>
 
