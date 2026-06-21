@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ============ SEO ============ -->
+<title>Les voies japonaises — Chroniques du Japon</title>
+<meta name="description" content="Une page éducative consacrée au kendo, au katana, aux jardins, à la calligraphie, à l'architecture traditionnelle et à Musashi.">
+<meta name="theme-color" content="#0c1f30">
+<link rel="canonical" href="ressources.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23b5402c'/%3E%3Ctext x='16' y='24' font-size='21' text-anchor='middle' fill='%23f6efdf' font-family='serif' font-weight='700'%3E道%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Les voies japonaises — Chroniques du Japon">
+<meta property="og:description" content="Six chemins pour comprendre l'esprit, le geste et la beauté du Japon : kendo, forge du katana, jardin, calligraphie, architecture et Musashi.">
+<meta property="og:image" content="galerie/kendo.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   « Les voies japonaises » — feuille autonome.
+   Réutilise les tokens de design de Chroniques du Japon :
+   washi beige, bleu nuit, rouge sceau, doré, Shippori + Garamond.
+   ============================================================ */
+:root{
+  --washi:#e8ddc7; --washi-2:#efe7d6; --washi-3:#ece2cb; --washi-card:#f6f0e2;
+  --night:#0c1f30; --night-2:#13283c; --night-3:#1b3a54; --night-deep:#0c1622;
+  --seal:#b5402c; --seal-2:#9c3220;
+  --gold:#c9a44e; --gold-2:#dcc079; --gold-soft:#cdbb98;
+  --ink:#1f1a14; --ink-2:#4a4035; --ink-3:#6a5f4e;
+  --cream:#f6efdf;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--washi);color:var(--ink);font-family:'EB Garamond',Georgia,serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--seal);color:var(--cream)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.jp{font-family:'Shippori Mincho',serif}
+.wrap{max-width:1180px;margin:0 auto}
+
+/* ---- accessibilité ---- */
+.skip-link{position:fixed;left:12px;top:-60px;z-index:200;background:var(--seal);color:var(--cream);padding:10px 16px;border-radius:6px;letter-spacing:.1em}
+.skip-link:focus{top:12px}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible,.voie-panel:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+
+/* ---- grain washi ---- */
+.washi-grain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;opacity:.05;z-index:1;mix-blend-mode:multiply}
+
+/* ============ Navigation ============ */
+.r-nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:14px clamp(20px,5vw,64px);color:var(--ink);background:rgba(232,221,199,.86);
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid rgba(201,164,78,.4)}
+.r-brand{display:flex;align-items:center;gap:12px}
+.r-seal{display:grid;place-items:center;width:34px;height:34px;background:var(--seal);color:var(--cream);border-radius:7px;
+  font-family:'Shippori Mincho',serif;font-weight:700;font-size:19px;transform:rotate(-3deg);box-shadow:0 2px 8px rgba(120,30,18,.4)}
+.r-brand b{font-family:'Shippori Mincho',serif;font-weight:600;font-size:17px;letter-spacing:.03em}
+.r-nav-links{display:flex;align-items:center;gap:clamp(16px,2.4vw,30px);font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+.r-nav-links a{opacity:.8;transition:opacity .3s,color .3s}
+.r-nav-links a:hover{opacity:1;color:var(--seal)}
+.r-back{display:inline-flex;align-items:center;gap:7px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--cream);background:var(--night-2);padding:8px 15px;border-radius:999px;transition:background .3s,transform .3s}
+.r-back:hover{background:var(--seal);transform:translateX(-2px)}
+@media(max-width:680px){.r-nav-links{display:none}}
+
+/* ============ Hero ============ */
+.hero{position:relative;overflow:hidden;text-align:center;padding:clamp(140px,20vh,210px) clamp(22px,6vw,80px) clamp(70px,10vh,120px);
+  background:radial-gradient(ellipse at 50% -10%,#f1e9d6 0%,var(--washi) 60%)}
+.hero-kanji{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);font-family:'Shippori Mincho',serif;font-weight:800;
+  font-size:min(56vw,560px);line-height:1;color:rgba(30,58,82,.05);user-select:none;pointer-events:none;z-index:0}
+.hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;margin-bottom:22px;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--seal)}
+.eyebrow::before,.eyebrow::after{content:"";width:34px;height:1px;background:var(--seal);opacity:.7}
+.hero h1{font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(38px,6vw,74px);line-height:1.05;color:var(--ink);margin-bottom:22px}
+/* titre animé « vaporize » (amélioration progressive : si JS, on masque le h1 et on affiche le canvas) */
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.vapor-title{position:relative;width:100%;max-width:720px;height:clamp(66px,12.5vw,120px);margin:0 auto 22px}
+.vapor-title[hidden]{display:none}
+.vapor-title canvas{display:block;width:100%;height:100%}
+.hero .subtitle{font-style:italic;font-size:clamp(18px,2.2vw,24px);color:var(--seal-2);margin-bottom:26px;text-wrap:balance}
+.hero .intro{font-size:clamp(16px,1.5vw,18px);line-height:1.75;color:var(--ink-2);max-width:60ch;margin:0 auto}
+.scroll-hint{margin-top:46px;display:inline-flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-3)}
+.scroll-hint span{font-size:20px;line-height:1;animation:nudge 1.7s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ---- séparateur « coup de sabre » ---- */
+.blade-sep{position:relative;height:2px;margin:0 auto;max-width:1180px}
+.blade-sep::before{content:"";position:absolute;left:6%;right:6%;top:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(201,164,78,.85) 12%,var(--gold-2) 50%,rgba(201,164,78,.85) 88%,transparent)}
+.blade-sep::after{content:"";position:absolute;left:50%;top:-5px;transform:translateX(-50%) rotate(45deg);width:10px;height:10px;border:2px solid var(--gold);background:var(--washi)}
+
+/* ============ Accordéon horizontal ============ */
+.accordion-sec{padding:clamp(70px,11vh,130px) clamp(22px,5vw,64px)}
+.sec-head{text-align:center;max-width:640px;margin:0 auto clamp(40px,6vh,60px)}
+.sec-head h2{font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(28px,3.6vw,44px);line-height:1.1;color:var(--ink);margin-bottom:14px}
+.sec-head p{color:var(--ink-2);font-size:clamp(15px,1.4vw,17px)}
+
+.voie-track{display:flex;gap:14px;height:clamp(440px,62vh,580px)}
+.voie-panel{position:relative;flex:1 1 0;min-width:62px;overflow:hidden;border-radius:18px;cursor:pointer;display:block;
+  border:1px solid rgba(201,164,78,.35);box-shadow:0 16px 40px rgba(12,31,48,.16);
+  transition:flex-grow .65s cubic-bezier(.7,0,.2,1),box-shadow .4s ease}
+.voie-panel.is-active{flex-grow:6;box-shadow:0 28px 60px rgba(12,31,48,.3)}
+.voie-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.voie-panel.is-active .voie-img{transform:scale(1.06)}
+/* dégradé bleu nuit transparent */
+.voie-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,31,48,.32) 0%,rgba(12,31,48,.55) 55%,rgba(8,18,28,.88) 100%);
+  transition:opacity .5s ease}
+/* titre vertical (panneau fermé) */
+.voie-spine{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);writing-mode:vertical-rl;
+  display:flex;align-items:center;gap:14px;white-space:nowrap;color:var(--cream);
+  font-family:'Shippori Mincho',serif;font-weight:600;font-size:clamp(15px,1.5vw,18px);letter-spacing:.12em;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);transition:opacity .35s ease}
+.voie-spine .k{font-size:1.5em;color:var(--gold-2)}
+.voie-panel.is-active .voie-spine{opacity:0}
+/* contenu (panneau ouvert) */
+.voie-content{position:absolute;left:0;right:0;bottom:0;padding:clamp(22px,2.4vw,34px);color:var(--cream);
+  opacity:0;transform:translateY(16px);transition:opacity .55s ease .12s,transform .55s ease .12s}
+.voie-panel.is-active .voie-content{opacity:1;transform:none}
+.voie-content .vk{position:absolute;top:-58px;right:18px;font-family:'Shippori Mincho',serif;font-weight:800;
+  font-size:110px;line-height:1;color:rgba(201,164,78,.18);pointer-events:none;user-select:none}
+.voie-num{font-family:'Shippori Mincho',serif;font-size:14px;color:var(--gold-2);letter-spacing:.2em}
+.voie-content h3{font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(22px,2.4vw,30px);line-height:1.15;margin:4px 0 10px}
+.voie-content h3 span{display:block;font-size:.62em;font-weight:500;color:var(--gold-2);letter-spacing:.02em}
+.voie-text{font-size:14.5px;line-height:1.6;color:#e6dcc6;max-width:46ch;margin-bottom:18px}
+.voie-cta{display:inline-flex;align-items:center;gap:9px;background:var(--seal);color:var(--cream);
+  padding:10px 20px;border-radius:999px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+  box-shadow:0 8px 20px rgba(120,30,18,.4);transition:background .3s,transform .3s}
+.voie-panel.is-active:hover .voie-cta{background:var(--seal-2);transform:translateX(3px)}
+
+/* ---- shine border « rouge sang » permanent (6 voies + cadres des blocs détaillés) ---- */
+.beam{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;--sb-bw:1.6px;--sb-dur:8s}
+.voie-panel .beam{z-index:5}
+.beam::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:var(--sb-bw);
+  background-image:radial-gradient(transparent,transparent,#e01e2b,#7a0a12,transparent,transparent);background-size:300% 300%;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;animation:shine var(--sb-dur) linear infinite}
+.beam::after{content:"";position:absolute;inset:0;border-radius:inherit;border:var(--sb-bw) solid rgba(200,30,38,.5)}
+@keyframes shine{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+.voie-panel:nth-child(2n) .beam::before{animation-delay:-2.5s}
+.voie-panel:nth-child(3n) .beam::before{animation-delay:-5s}
+.voie-detail:nth-child(2n) .beam::before{animation-delay:-4s}
+@media (prefers-reduced-motion: reduce){.beam::before{animation:none}}
+@supports not ((mask-composite:exclude) or (-webkit-mask-composite:xor)){.beam::before{display:none}}
+
+/* ============ Blocs pédagogiques détaillés ============ */
+.details{padding:clamp(40px,7vh,80px) clamp(22px,5vw,64px) clamp(70px,10vh,120px)}
+.voie-detail{scroll-margin-top:86px;padding:clamp(40px,6vh,70px) 0}
+.voie-detail + .voie-detail{border-top:1px solid rgba(31,26,20,.1)}
+.detail-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,4vw,56px);align-items:start}
+.voie-detail.reverse .detail-grid{direction:rtl}
+.voie-detail.reverse .detail-grid>*{direction:ltr}
+.detail-media{position:relative;aspect-ratio:3/4;border-radius:16px;overflow:hidden;
+  border:1px solid rgba(201,164,78,.4);box-shadow:0 22px 50px rgba(12,31,48,.22);position:sticky;top:96px}
+.detail-media img{width:100%;height:100%;object-fit:cover}
+.detail-media .frame-kanji{position:absolute;top:12px;left:16px;font-family:'Shippori Mincho',serif;font-weight:800;
+  font-size:64px;line-height:1;color:rgba(246,239,223,.85);text-shadow:0 2px 14px rgba(0,0,0,.5);pointer-events:none}
+.detail-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--seal)}
+.detail-eyebrow .rule{width:36px;height:1px;background:var(--seal)}
+.voie-detail h2{font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(26px,3.2vw,40px);line-height:1.12;color:var(--ink);margin-bottom:24px}
+.detail-block{margin-bottom:24px}
+.detail-block h3{display:inline-flex;align-items:center;gap:8px;font-family:'EB Garamond',serif;font-weight:600;
+  font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--seal-2);margin-bottom:8px}
+.detail-block h3::before{content:"";width:16px;height:1px;background:var(--gold)}
+.detail-block p{color:var(--ink-2);font-size:clamp(15px,1.4vw,16.5px);line-height:1.75}
+.detail-question{font-style:italic;color:var(--night-2)!important;font-size:clamp(16px,1.5vw,18px)!important}
+.retenir{list-style:none;display:grid;gap:9px}
+.retenir li{position:relative;padding-left:26px;color:var(--ink-2);font-size:15.5px;line-height:1.6}
+.retenir li::before{content:"";position:absolute;left:4px;top:.62em;width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+.detail-lesson{position:relative;margin-top:8px;background:linear-gradient(100deg,var(--night-2) 0%,var(--night-3) 100%);
+  color:var(--cream);border-radius:13px;border:1px solid rgba(201,164,78,.34);border-left:4px solid var(--gold);
+  padding:clamp(22px,3vw,30px) clamp(24px,3vw,34px);overflow:hidden}
+.detail-lesson .lesson-k{position:absolute;top:-22px;right:10px;font-family:'Shippori Mincho',serif;font-weight:800;
+  font-size:140px;line-height:1;color:rgba(201,164,78,.08);pointer-events:none;user-select:none}
+.detail-lesson .lesson-label{display:block;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-2);margin-bottom:10px}
+.detail-lesson q{font-family:'Shippori Mincho',serif;font-weight:600;font-style:normal;font-size:clamp(18px,2vw,24px);line-height:1.45;text-wrap:balance}
+.detail-lesson q::before,.detail-lesson q::after{content:""}
+.detail-back{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--seal-2);transition:gap .3s,color .3s}
+.detail-back:hover{gap:13px;color:var(--seal)}
+
+/* reveal au scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ Footer ============ */
+.r-footer{background:var(--night);color:var(--gold-soft);text-align:center;padding:clamp(60px,9vh,100px) clamp(22px,6vw,80px) 46px;position:relative;overflow:hidden}
+.r-footer::before{content:"";position:absolute;top:0;left:0;right:0;height:40px;opacity:.5;
+  background:radial-gradient(circle at 50% 100%,var(--gold) 8%,transparent 9%),radial-gradient(circle at 0 100%,var(--gold) 8%,transparent 9%),radial-gradient(circle at 100% 100%,var(--gold) 8%,transparent 9%);
+  background-size:40px 40px}
+.r-footer .f-seal{display:grid;place-items:center;width:50px;height:50px;margin:0 auto 16px;background:var(--seal);color:var(--cream);
+  border-radius:9px;font-family:'Shippori Mincho',serif;font-weight:700;font-size:26px;transform:rotate(-4deg);box-shadow:0 6px 18px rgba(120,30,18,.4)}
+.r-footer b{display:block;font-family:'Shippori Mincho',serif;font-weight:600;font-size:22px;color:var(--cream);margin-bottom:14px}
+.r-footer .f-quote{font-family:'Shippori Mincho',serif;font-style:italic;font-size:clamp(16px,1.7vw,20px);color:#d6c8af;max-width:46ch;margin:0 auto 30px}
+.r-footer .f-home{display:inline-flex;align-items:center;gap:9px;color:var(--cream);background:var(--seal);padding:11px 24px;border-radius:999px;
+  font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;transition:background .3s,transform .3s}
+.r-footer .f-home:hover{background:var(--seal-2);transform:translateY(-2px)}
+.r-footer .f-note{font-size:12.5px;line-height:1.6;color:#8a7e69;max-width:58ch;margin:34px auto 0}
+
+/* ============ Responsive : accordéon → cartes empilées ============ */
+@media(max-width:760px){
+  .voie-track{flex-direction:column;height:auto;gap:18px}
+  .voie-panel{flex:none;width:100%;height:clamp(380px,76vw,460px);box-shadow:0 16px 40px rgba(12,31,48,.18)}
+  .voie-panel .voie-img{transform:none}
+  .voie-spine{display:none}                 /* plus de titre vertical sur mobile */
+  .voie-content{opacity:1;transform:none}    /* toutes les cartes « ouvertes » */
+  .voie-content .vk{top:-46px;font-size:88px}
+  .detail-grid{grid-template-columns:1fr}
+  .voie-detail.reverse .detail-grid{direction:ltr}
+  .detail-media{position:relative;top:0;max-width:360px;margin:0 auto}
+}
+
+/* ---- mouvement réduit ---- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- grain washi (cohérent avec la page d'accueil) -->
+<svg class="washi-grain" aria-hidden="true">
+  <filter id="washiNoise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence></filter>
+  <rect width="100%" height="100%" filter="url(#washiNoise)"></rect>
+</svg>
+
+<a href="#accordeon" class="skip-link">Aller au contenu</a>
+
+<!-- ============ Navigation ============ -->
+<nav class="r-nav" aria-label="Navigation principale">
+  <a class="r-brand" href="Chroniques%20du%20Japon.dc.html" aria-label="Chroniques du Japon — accueil">
+    <span class="r-seal jp" aria-hidden="true">和</span>
+    <b>Chroniques du Japon</b>
+  </a>
+  <div class="r-nav-links">
+    <a href="#accordeon">Les six voies</a>
+    <a href="#details">Approfondir</a>
+  </div>
+  <a class="r-back" href="Chroniques%20du%20Japon.dc.html">← Accueil</a>
+</nav>
+
+<main>
+
+<!-- ============ Hero ============ -->
+<header class="hero">
+  <span class="hero-kanji jp" aria-hidden="true">道</span>
+  <div class="hero-inner">
+    <span class="eyebrow">道 · Ressources</span>
+    <h1 class="hero-title">Les voies japonaises</h1>
+    <div class="vapor-title" data-vapor hidden aria-hidden="true"></div>
+    <p class="subtitle">Six chemins pour comprendre l'esprit, le geste et la beauté du Japon.</p>
+    <p class="intro">Du sabre à l'encre, de l'acier au jardin, ces six disciplines partagent une même exigence : faire de la pratique un chemin intérieur. Chacune est une <em>voie</em> — un <span class="jp">道</span>, un <em>dō</em> — que l'on parcourt patiemment, le regard tourné autant vers le geste que vers soi-même.</p>
+    <a class="scroll-hint" href="#accordeon">Explorer les six voies<span aria-hidden="true">⌄</span></a>
+  </div>
+</header>
+
+<div class="blade-sep" aria-hidden="true"></div>
+
+<!-- ============ Accordéon horizontal ============ -->
+<section class="accordion-sec" id="accordeon" aria-labelledby="accordeon-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="accordeon-title" class="jp">Six voies, un même esprit</h2>
+      <p>Survolez ou sélectionnez un panneau pour le dévoiler, puis suivez « Explorer cette voie » pour approfondir le thème.</p>
+    </div>
+
+    <div class="voie-track" role="list">
+
+      <!-- 1. Kendo -->
+      <a class="voie-panel is-active" role="listitem" href="#voie-kendo" aria-expanded="true"
+         aria-label="Kendo, la voie du sabre — ouvrir et explorer">
+        <img class="voie-img" src="galerie/kendo.png" alt="Pratiquant de kendo en armure, le shinai en garde" loading="lazy" data-kanji="剣" onerror="voieFallback(this)">
+        <span class="beam" aria-hidden="true"></span>
+        <span class="voie-overlay" aria-hidden="true"></span>
+        <span class="voie-spine" aria-hidden="true"><span class="k jp">剣</span><span class="jp">Kendo · La voie du sabre</span></span>
+        <span class="voie-content">
+          <span class="vk jp" aria-hidden="true">剣</span>
+          <span class="voie-num jp">01</span>
+          <h3 class="jp">Kendo<span>La voie du sabre</span></h3>
+          <p class="voie-text">Né de l'entraînement des guerriers japonais, le kendo transforme le combat en discipline intérieure. Derrière l'armure et le shinai, il enseigne le respect, la posture, la précision et la maîtrise de soi.</p>
+          <span class="voie-cta">Explorer cette voie →</span>
+        </span>
+      </a>
+
+      <!-- 2. Forge du katana -->
+      <a class="voie-panel" role="listitem" href="#voie-forge" aria-expanded="false"
+         aria-label="Forge du katana — ouvrir et explorer">
+        <img class="voie-img" src="galerie/forgeron.png" alt="Forgeron japonais martelant une lame incandescente" loading="lazy" data-kanji="鍛" onerror="voieFallback(this)">
+        <span class="beam" aria-hidden="true"></span>
+        <span class="voie-overlay" aria-hidden="true"></span>
+        <span class="voie-spine" aria-hidden="true"><span class="k jp">鍛</span><span class="jp">Forge du katana</span></span>
+        <span class="voie-content">
+          <span class="vk jp" aria-hidden="true">鍛</span>
+          <span class="voie-num jp">02</span>
+          <h3 class="jp">Forge du katana<span>Le feu, l'acier et la patience</span></h3>
+          <p class="voie-text">La forge du sabre japonais mêle technique, tradition et spiritualité. Chaque lame naît du feu, du martelage, de la trempe et du polissage, jusqu'à devenir à la fois outil, symbole et œuvre d'art.</p>
+          <span class="voie-cta">Explorer cette voie →</span>
+        </span>
+      </a>
+
+      <!-- 3. Jardin japonais -->
+      <a class="voie-panel" role="listitem" href="#voie-jardin" aria-expanded="false"
+         aria-label="Jardin japonais — ouvrir et explorer">
+        <img class="voie-img" src="galerie/jardin.png" alt="Jardin japonais : pierres, mousse et sable ratissé" loading="lazy" data-kanji="庭" onerror="voieFallback(this)">
+        <span class="beam" aria-hidden="true"></span>
+        <span class="voie-overlay" aria-hidden="true"></span>
+        <span class="voie-spine" aria-hidden="true"><span class="k jp">庭</span><span class="jp">Jardin japonais</span></span>
+        <span class="voie-content">
+          <span class="vk jp" aria-hidden="true">庭</span>
+          <span class="voie-num jp">03</span>
+          <h3 class="jp">Jardin japonais<span>Composer le silence</span></h3>
+          <p class="voie-text">Le jardin japonais n'imite pas simplement la nature : il la condense. Pierres, mousse, eau, sable et vide composent un espace de contemplation où chaque détail invite à ralentir le regard.</p>
+          <span class="voie-cta">Explorer cette voie →</span>
+        </span>
+      </a>
+
+      <!-- 4. Calligraphie -->
+      <a class="voie-panel" role="listitem" href="#voie-calligraphie" aria-expanded="false"
+         aria-label="Calligraphie japonaise — ouvrir et explorer">
+        <img class="voie-img" src="galerie/calligraphie.png" alt="Pinceau de calligraphie traçant un caractère à l'encre" loading="lazy" data-kanji="書" onerror="voieFallback(this)">
+        <span class="beam" aria-hidden="true"></span>
+        <span class="voie-overlay" aria-hidden="true"></span>
+        <span class="voie-spine" aria-hidden="true"><span class="k jp">書</span><span class="jp">Calligraphie</span></span>
+        <span class="voie-content">
+          <span class="vk jp" aria-hidden="true">書</span>
+          <span class="voie-num jp">04</span>
+          <h3 class="jp">Calligraphie<span>Le souffle du pinceau</span></h3>
+          <p class="voie-text">Dans la calligraphie japonaise, le trait révèle autant la forme que l'état intérieur. Le geste ne se corrige pas : il garde la trace d'une respiration, d'une intention et d'un instant.</p>
+          <span class="voie-cta">Explorer cette voie →</span>
+        </span>
+      </a>
+
+      <!-- 5. Architecture traditionnelle -->
+      <a class="voie-panel" role="listitem" href="#voie-architecture" aria-expanded="false"
+         aria-label="Architecture traditionnelle japonaise — ouvrir et explorer">
+        <img class="voie-img" src="galerie/architecture.png" alt="Intérieur japonais traditionnel : tatami, shoji et lumière douce" loading="lazy" data-kanji="間" onerror="voieFallback(this)">
+        <span class="beam" aria-hidden="true"></span>
+        <span class="voie-overlay" aria-hidden="true"></span>
+        <span class="voie-spine" aria-hidden="true"><span class="k jp">間</span><span class="jp">Architecture</span></span>
+        <span class="voie-content">
+          <span class="vk jp" aria-hidden="true">間</span>
+          <span class="voie-num jp">05</span>
+          <h3 class="jp">Architecture<span>Habiter le vide</span></h3>
+          <p class="voie-text">Bois, tatami, shoji, lumière et jardin composent une architecture sobre et vivante. L'espace japonais cherche l'équilibre entre intérieur et extérieur, présence et silence, matière et respiration.</p>
+          <span class="voie-cta">Explorer cette voie →</span>
+        </span>
+      </a>
+
+      <!-- 6. Musashi / Vagabond -->
+      <a class="voie-panel" role="listitem" href="#voie-musashi" aria-expanded="false"
+         aria-label="Musashi et l'esprit de Vagabond — ouvrir et explorer">
+        <img class="voie-img" src="galerie/vagabond.png" alt="Silhouette d'un sabreur solitaire sous la lune, évoquant Musashi" loading="lazy" data-kanji="武" onerror="voieFallback(this)">
+        <span class="beam" aria-hidden="true"></span>
+        <span class="voie-overlay" aria-hidden="true"></span>
+        <span class="voie-spine" aria-hidden="true"><span class="k jp">武</span><span class="jp">Musashi · Vagabond</span></span>
+        <span class="voie-content">
+          <span class="vk jp" aria-hidden="true">武</span>
+          <span class="voie-num jp">06</span>
+          <h3 class="jp">Musashi / Vagabond<span>Le sabre comme quête intérieure</span></h3>
+          <p class="voie-text">À travers la figure de Miyamoto Musashi, l'imaginaire de Vagabond transforme le combat en chemin existentiel. La force n'est plus seulement physique : elle devient question, solitude, discipline et recherche de sens.</p>
+          <span class="voie-cta">Explorer cette voie →</span>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="blade-sep" aria-hidden="true"></div>
+
+<!-- ============ Blocs pédagogiques détaillés ============ -->
+<section class="details" id="details" aria-label="Approfondir chaque voie">
+  <div class="wrap">
+
+    <!-- 1. Kendo -->
+    <article class="voie-detail reveal" id="voie-kendo">
+      <div class="detail-grid">
+        <figure class="detail-media">
+          <span class="beam" aria-hidden="true"></span>
+          <img src="galerie/kendo.png" alt="Pratiquant de kendo en armure, le shinai levé" loading="lazy" data-kanji="剣" onerror="voieFallback(this)">
+          <span class="frame-kanji jp" aria-hidden="true">剣</span>
+        </figure>
+        <div class="detail-body">
+          <p class="detail-eyebrow"><span class="rule"></span>01 · La voie du sabre</p>
+          <h2 class="jp">Kendo — La voie du sabre</h2>
+
+          <div class="detail-block">
+            <h3>Comprendre</h3>
+            <p>Héritier des techniques de sabre des <em>bushi</em>, le kendo — « la voie du sabre » — a quitté le champ de bataille pour devenir un art de formation. On y combat avec un sabre de bambou, le <em>shinai</em>, et une armure, le <em>bōgu</em>, mais l'adversaire véritable reste soi-même. Chaque assaut demande une posture juste, une distance maîtrisée (<em>ma-ai</em>) et un esprit calme. La frappe ne compte que si le corps, le sabre et l'intention agissent d'un seul mouvement.</p>
+          </div>
+          <div class="detail-block">
+            <h3>Observer</h3>
+            <p class="detail-question">Regardez les mains et les hanches d'un kendoka au moment de la frappe : d'où naît réellement la force du coup ?</p>
+          </div>
+          <div class="detail-block">
+            <h3>Retenir</h3>
+            <ul class="retenir">
+              <li>Le shinai et le bōgu rendent possible un combat réel sans blessure.</li>
+              <li>La distance (ma-ai) décide souvent du duel avant même le geste.</li>
+              <li>Le salut, à l'entrée comme à la sortie, encadre toute la pratique.</li>
+            </ul>
+          </div>
+          <blockquote class="detail-lesson">
+            <span class="lesson-k jp" aria-hidden="true">心</span>
+            <span class="lesson-label">Leçon japonaise</span>
+            <q>La maîtrise ne vient pas de la vitesse, mais de la répétition consciente du geste.</q>
+          </blockquote>
+          <a class="detail-back" href="#accordeon">↑ Revenir aux six voies</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. Forge du katana -->
+    <article class="voie-detail reverse reveal" id="voie-forge">
+      <div class="detail-grid">
+        <figure class="detail-media">
+          <span class="beam" aria-hidden="true"></span>
+          <img src="galerie/forgeron.png" alt="Forgeron martelant une lame de katana incandescente" loading="lazy" data-kanji="鍛" onerror="voieFallback(this)">
+          <span class="frame-kanji jp" aria-hidden="true">鍛</span>
+        </figure>
+        <div class="detail-body">
+          <p class="detail-eyebrow"><span class="rule"></span>02 · Le feu et l'acier</p>
+          <h2 class="jp">Forge du katana — Le feu, l'acier et la patience</h2>
+
+          <div class="detail-block">
+            <h3>Comprendre</h3>
+            <p>Le forgeron, le <em>tōshō</em>, part d'un acier brut, le <em>tamahagane</em>, né d'un four de fusion traditionnel, le <em>tatara</em>. Il plie et martèle la matière des dizaines de fois pour en chasser les impuretés et créer les milliers de strates qui feront la solidité de la lame. Vient ensuite la trempe : recouverte d'argile, la lame plonge dans l'eau, et c'est là que se forment sa courbe et la ligne ondoyante du <em>hamon</em>. Le polissage, confié à un autre maître, révèle enfin l'âme de l'acier.</p>
+          </div>
+          <div class="detail-block">
+            <h3>Observer</h3>
+            <p class="detail-question">Suivez la ligne du hamon le long du tranchant : que raconte-t-elle du passage du feu à l'eau ?</p>
+          </div>
+          <div class="detail-block">
+            <h3>Retenir</h3>
+            <ul class="retenir">
+              <li>Le pliage répété de l'acier marie la dureté du tranchant à la souplesse du corps.</li>
+              <li>La trempe à l'argile donne à la lame sa courbe et son hamon.</li>
+              <li>Forger et polir sont deux métiers distincts et complémentaires.</li>
+            </ul>
+          </div>
+          <blockquote class="detail-lesson">
+            <span class="lesson-k jp" aria-hidden="true">鍛</span>
+            <span class="lesson-label">Leçon japonaise</span>
+            <q>L'acier ne devient lame que par les coups qu'il accepte de recevoir.</q>
+          </blockquote>
+          <a class="detail-back" href="#accordeon">↑ Revenir aux six voies</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. Jardin japonais -->
+    <article class="voie-detail reveal" id="voie-jardin">
+      <div class="detail-grid">
+        <figure class="detail-media">
+          <span class="beam" aria-hidden="true"></span>
+          <img src="galerie/jardin.png" alt="Jardin sec japonais : rochers, mousse et gravier ratissé" loading="lazy" data-kanji="庭" onerror="voieFallback(this)">
+          <span class="frame-kanji jp" aria-hidden="true">庭</span>
+        </figure>
+        <div class="detail-body">
+          <p class="detail-eyebrow"><span class="rule"></span>03 · Composer le silence</p>
+          <h2 class="jp">Jardin japonais — Composer le silence</h2>
+
+          <div class="detail-block">
+            <h3>Comprendre</h3>
+            <p>Le jardin japonais ne reproduit pas la nature : il en propose une lecture concentrée. Pierres dressées, mousses, eau réelle ou suggérée par le sable ratissé composent un paysage miniature offert à la méditation. Le jardin sec du zen, le <em>karesansui</em>, pousse l'idée à l'extrême : quelques rochers sur un lit de gravier suffisent à évoquer montagnes et océans. Rien n'est laissé au hasard, pas même le vide, qui donne au regard de quoi respirer.</p>
+          </div>
+          <div class="detail-block">
+            <h3>Observer</h3>
+            <p class="detail-question">Cherchez ce qui n'est pas montré : où le vide travaille-t-il autant que les pierres ?</p>
+          </div>
+          <div class="detail-block">
+            <h3>Retenir</h3>
+            <ul class="retenir">
+              <li>Le jardin condense la nature plutôt qu'il ne l'imite.</li>
+              <li>Le sable ratissé peut représenter l'eau et son mouvement.</li>
+              <li>Le vide, le <em>ma</em>, est un élément de composition à part entière.</li>
+            </ul>
+          </div>
+          <blockquote class="detail-lesson">
+            <span class="lesson-k jp" aria-hidden="true">静</span>
+            <span class="lesson-label">Leçon japonaise</span>
+            <q>Un jardin bien composé ne se regarde pas : il se contemple.</q>
+          </blockquote>
+          <a class="detail-back" href="#accordeon">↑ Revenir aux six voies</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4. Calligraphie -->
+    <article class="voie-detail reverse reveal" id="voie-calligraphie">
+      <div class="detail-grid">
+        <figure class="detail-media">
+          <span class="beam" aria-hidden="true"></span>
+          <img src="galerie/calligraphie.png" alt="Main guidant un pinceau de calligraphie sur du papier" loading="lazy" data-kanji="書" onerror="voieFallback(this)">
+          <span class="frame-kanji jp" aria-hidden="true">書</span>
+        </figure>
+        <div class="detail-body">
+          <p class="detail-eyebrow"><span class="rule"></span>04 · Le souffle du pinceau</p>
+          <h2 class="jp">Calligraphie — Le souffle du pinceau</h2>
+
+          <div class="detail-block">
+            <h3>Comprendre</h3>
+            <p>La calligraphie, le <em>shodō</em> — « la voie de l'écriture » —, unit le sens du caractère et la beauté de son tracé. Le calligraphe prépare son encre en frottant le bâton sur la pierre, charge le pinceau, puis trace d'un seul geste continu. Le trait ne se retouche jamais : il garde la trace exacte de la pression, de la vitesse et de la respiration de l'instant. Le blanc du papier compte autant que le noir de l'encre.</p>
+          </div>
+          <div class="detail-block">
+            <h3>Observer</h3>
+            <p class="detail-question">Observez le début et la fin d'un trait : où sentez-vous l'élan, l'arrêt, le souffle qui se retient ?</p>
+          </div>
+          <div class="detail-block">
+            <h3>Retenir</h3>
+            <ul class="retenir">
+              <li>Le geste est unique et irréversible : on ne corrige pas un trait.</li>
+              <li>Le blanc du papier participe pleinement à la composition.</li>
+              <li>Le trait révèle l'état intérieur autant que la forme du caractère.</li>
+            </ul>
+          </div>
+          <blockquote class="detail-lesson">
+            <span class="lesson-k jp" aria-hidden="true">書</span>
+            <span class="lesson-label">Leçon japonaise</span>
+            <q>Le pinceau écrit ce que la main pense avant les mots.</q>
+          </blockquote>
+          <a class="detail-back" href="#accordeon">↑ Revenir aux six voies</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5. Architecture traditionnelle -->
+    <article class="voie-detail reveal" id="voie-architecture">
+      <div class="detail-grid">
+        <figure class="detail-media">
+          <span class="beam" aria-hidden="true"></span>
+          <img src="galerie/architecture.png" alt="Pièce japonaise traditionnelle : tatami, cloisons shoji et engawa" loading="lazy" data-kanji="間" onerror="voieFallback(this)">
+          <span class="frame-kanji jp" aria-hidden="true">間</span>
+        </figure>
+        <div class="detail-body">
+          <p class="detail-eyebrow"><span class="rule"></span>05 · Habiter le vide</p>
+          <h2 class="jp">Architecture traditionnelle — Habiter le vide</h2>
+
+          <div class="detail-block">
+            <h3>Comprendre</h3>
+            <p>L'architecture japonaise traditionnelle est faite de bois, de papier et de lumière. Le sol de <em>tatami</em> fixe une trame, les cloisons coulissantes — <em>shoji</em> et <em>fusuma</em> — modulent l'espace, et l'<em>engawa</em>, galerie de bois, relie l'intérieur au jardin. Rien n'est massif : tout peut s'ouvrir, se fermer, respirer. L'espace n'est pas rempli mais composé autour du vide, le <em>ma</em>, qui laisse place au silence et à la présence.</p>
+          </div>
+          <div class="detail-block">
+            <h3>Observer</h3>
+            <p class="detail-question">Repérez les seuils et les cloisons : où finit le dedans, où commence le dehors ?</p>
+          </div>
+          <div class="detail-block">
+            <h3>Retenir</h3>
+            <ul class="retenir">
+              <li>Le tatami sert à la fois d'unité de mesure et de rythme.</li>
+              <li>Les cloisons coulissantes rendent l'espace modulable à volonté.</li>
+              <li>Le lien intérieur–extérieur est recherché, jamais subi.</li>
+            </ul>
+          </div>
+          <blockquote class="detail-lesson">
+            <span class="lesson-k jp" aria-hidden="true">間</span>
+            <span class="lesson-label">Leçon japonaise</span>
+            <q>Une maison ne se mesure pas à ses murs, mais à l'espace qu'elle laisse vivre.</q>
+          </blockquote>
+          <a class="detail-back" href="#accordeon">↑ Revenir aux six voies</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6. Musashi / Vagabond -->
+    <article class="voie-detail reverse reveal" id="voie-musashi">
+      <div class="detail-grid">
+        <figure class="detail-media">
+          <span class="beam" aria-hidden="true"></span>
+          <img src="galerie/vagabond.png" alt="Silhouette d'un sabreur solitaire sous la lune, librement inspirée de Musashi" loading="lazy" data-kanji="武" onerror="voieFallback(this)">
+          <span class="frame-kanji jp" aria-hidden="true">武</span>
+        </figure>
+        <div class="detail-body">
+          <p class="detail-eyebrow"><span class="rule"></span>06 · Le sabre comme quête</p>
+          <h2 class="jp">Musashi / Vagabond — Le sabre comme quête intérieure</h2>
+
+          <div class="detail-block">
+            <h3>Comprendre</h3>
+            <p>Miyamoto Musashi, sabreur invaincu du XVII<sup>e</sup> siècle, est devenu une figure de l'esprit autant que du combat. À la fin de sa vie, il écrit le <em>Traité des cinq roues</em> et le <em>Dokkōdō</em>, où la voie du sabre rejoint la voie de la vie. Les récits modernes qui s'en inspirent — comme l'imaginaire du manga d'auteur autour de <em>Vagabond</em> — font du duel une métaphore : la véritable adversité est intérieure. La force devient alors patience, solitude assumée et recherche de sens.</p>
+          </div>
+          <div class="detail-block">
+            <h3>Observer</h3>
+            <p class="detail-question">Devant l'image, demandez-vous : que cherche réellement celui qui lève son sabre seul ?</p>
+          </div>
+          <div class="detail-block">
+            <h3>Retenir</h3>
+            <ul class="retenir">
+              <li>Musashi a laissé une pensée écrite, pas seulement des victoires.</li>
+              <li>Le duel extérieur figure d'abord un combat intérieur.</li>
+              <li>La force véritable se mesure à la maîtrise de soi.</li>
+            </ul>
+          </div>
+          <blockquote class="detail-lesson">
+            <span class="lesson-k jp" aria-hidden="true">道</span>
+            <span class="lesson-label">Leçon japonaise</span>
+            <q>Le plus grand adversaire ne tient pas de sabre : c'est soi-même.</q>
+          </blockquote>
+          <p style="margin-top:18px;font-style:italic;font-size:13.5px;color:var(--ink-3)">Section librement inspirée de la figure de Miyamoto Musashi et de l'imaginaire de <em>Vagabond</em> : aucune planche, aucun personnage ni style graphique d'auteur n'y est reproduit.</p>
+          <a class="detail-back" href="#accordeon">↑ Revenir aux six voies</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="r-footer">
+  <span class="f-seal jp" aria-hidden="true">和</span>
+  <b class="jp">Chroniques du Japon</b>
+  <p class="f-quote">Six voies, un même esprit : transformer le geste en chemin, et le chemin en compréhension.</p>
+  <a class="f-home" href="Chroniques%20du%20Japon.dc.html">← Retour à l'accueil</a>
+  <p class="f-note">Les kanji présents sur cette page sont des éléments décoratifs ; tout le contenu est rédigé en français. Carnet personnel, à visée culturelle et éducative.</p>
+</footer>
+
+<script>
+/* ============================================================
+   Image de repli si une illustration manque (ex. calligraphie).
+   Génère un panneau bleu nuit + kanji doré, sans dépendance.
+   ============================================================ */
+function voieFallback(img){
+  var k = img.getAttribute('data-kanji') || '和';
+  var svg =
+    "<svg xmlns='http://www.w3.org/2000/svg' width='600' height='800'>" +
+      "<defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'>" +
+        "<stop offset='0' stop-color='#1b3a54'/><stop offset='1' stop-color='#0c1622'/>" +
+      "</linearGradient></defs>" +
+      "<rect width='600' height='800' fill='url(#g)'/>" +
+      "<text x='300' y='470' font-size='300' fill='rgba(201,164,78,0.85)' " +
+        "font-family='serif' font-weight='700' text-anchor='middle'>" + k + "</text>" +
+    "</svg>";
+  img.onerror = null;
+  img.src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+}
+
+/* ============================================================
+   Accordéon horizontal : un panneau actif à la fois.
+   Survol + focus clavier = ouverture ; clic = saut vers le détail.
+   ============================================================ */
+(function(){
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.voie-panel'));
+  var isTouch = window.matchMedia('(hover: none)').matches;
+
+  function setActive(i){
+    panels.forEach(function(p, idx){
+      var on = idx === i;
+      p.classList.toggle('is-active', on);
+      p.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+  }
+
+  panels.forEach(function(p, i){
+    if (!isTouch) p.addEventListener('mouseenter', function(){ setActive(i); });
+    p.addEventListener('focus', function(){ setActive(i); });
+  });
+
+  setActive(0); // Kendo ouvert par défaut
+})();
+
+/* ============================================================
+   Révélation douce des blocs au scroll.
+   ============================================================ */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ============================================================
+   Titre « vaporize » : le texte se dissipe comme de l'encre puis
+   cycle vers le mot suivant (port vanilla, sans dépendance).
+   Amélioration progressive : sans JS / canvas / mouvement réduit,
+   le <h1> reste affiché normalement.
+   ============================================================ */
+(function(){
+  var wrap = document.querySelector('[data-vapor]');
+  var h1 = document.querySelector('.hero-title');
+  if (!wrap || !h1) return;
+  if (!document.createElement('canvas').getContext) return;   // pas de canvas -> h1 visible
+
+  var canvas = document.createElement('canvas');
+  wrap.appendChild(canvas);
+  wrap.hidden = false;
+  h1.classList.add('sr-only');                 // h1 conservé pour le SEO, masqué visuellement
+
+  var TEXTS  = ['Les voies japonaises', "L'esprit", 'Le geste', 'La beauté'];
+  var COLOR  = [27, 49, 74];                    // encre bleu nuit (proche de --night-3)
+  var FONT   = "'Shippori Mincho', serif";
+  var WEIGHT = 700, SPREAD = 4;
+  var T_VAP = 2200, T_FADE = 1100, T_WAIT = 1600; // durées (ms)
+
+  var ctx = canvas.getContext('2d');
+  var dpr = Math.min(2, window.devicePixelRatio || 1);
+  var particles = [], bounds = { left:0, right:0, width:0 };
+  var idx = 0, state = 'static', raf = null, last = 0;
+  var vapProg = 0, fadeOp = 0, fontPx = 0, mult = 0, step = 1, inView = true;
+
+  function spreadFor(fs){
+    var p = [[20,0.2],[50,0.5],[100,1.5]];
+    if (fs <= p[0][0]) return p[0][1];
+    if (fs >= p[2][0]) return p[2][1];
+    var i = 0; while (i < p.length-1 && p[i+1][0] < fs) i++;
+    return p[i][1] + (fs - p[i][0]) * (p[i+1][1] - p[i][1]) / (p[i+1][0] - p[i][0]);
+  }
+  function fontStr(px){ return WEIGHT + ' ' + px + 'px ' + FONT; }
+
+  function fitFont(){
+    var rect = canvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return false;
+    canvas.width  = Math.floor(rect.width  * dpr);
+    canvas.height = Math.floor(rect.height * dpr);
+    step = Math.max(1, Math.round(dpr));
+    var size = Math.min(Math.floor(canvas.height * 0.62), Math.floor(74 * dpr));
+    ctx.font = fontStr(size);
+    var longest = 0, i;
+    for (i = 0; i < TEXTS.length; i++) longest = Math.max(longest, ctx.measureText(TEXTS[i]).width);
+    var maxW = canvas.width * 0.94;
+    if (longest > maxW) size = Math.max(18, Math.floor(size * maxW / longest));
+    fontPx = size;
+    mult = spreadFor(fontPx / dpr) * SPREAD;
+    return true;
+  }
+
+  function build(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = 'rgb('+COLOR[0]+','+COLOR[1]+','+COLOR[2]+')';
+    ctx.font = fontStr(fontPx); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    var cx = canvas.width/2, cy = canvas.height/2, text = TEXTS[idx];
+    var w = ctx.measureText(text).width;
+    bounds = { left: cx - w/2, right: cx + w/2, width: w };
+    ctx.fillText(text, cx, cy);
+    var data = ctx.getImageData(0,0,canvas.width,canvas.height).data;
+    particles = [];
+    for (var y = 0; y < canvas.height; y += step){
+      for (var x = 0; x < canvas.width; x += step){
+        var a = data[(y*canvas.width + x)*4 + 3];
+        if (a > 16){ var al = a/255; particles.push({ x:x, y:y, ox:x, oy:y, op:al, oa:al, vx:0, vy:0, sp:0, q:false }); }
+      }
+    }
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for (var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      if (p.op > 0.01){ ctx.fillStyle = 'rgba('+COLOR[0]+','+COLOR[1]+','+COLOR[2]+','+p.op+')'; ctx.fillRect(p.x, p.y, step, step); }
+    }
+  }
+
+  function vaporize(dt){
+    vapProg += dt * 100 / (T_VAP/1000);
+    var vx = bounds.left + bounds.width * Math.min(100, vapProg)/100;  // gauche -> droite
+    var allGone = true;
+    for (var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      if (p.ox <= vx){
+        if (p.sp === 0){
+          p.sp = (Math.random()*1 + 0.5) * mult;
+          var ang = Math.random()*Math.PI*2;
+          p.vx = Math.cos(ang)*p.sp;
+          p.vy = Math.sin(ang)*p.sp - mult*0.6;     // biais vers le haut : l'encre « monte »
+          p.q = Math.random() > 0.82;
+        }
+        if (p.q){ p.op = Math.max(0, p.op - dt*1.6); }
+        else {
+          var rs = mult*2.4;
+          p.vx = (p.vx + (Math.random()-0.5)*rs) * 0.96;
+          p.vy = (p.vy + (Math.random()-0.5)*rs - 0.4) * 0.96;
+          p.x += p.vx * dt * 22; p.y += p.vy * dt * 16;
+          p.op = Math.max(0, p.op - dt * 0.5);
+        }
+        if (p.op > 0.01) allGone = false;
+      } else { allGone = false; }
+    }
+    draw();
+    if (vapProg >= 100 && allGone){ idx = (idx + 1) % TEXTS.length; build(); fadeOp = 0; state = 'fading'; }
+  }
+
+  function fadeIn(dt){
+    fadeOp += dt * 1000 / T_FADE;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    var f = Math.min(fadeOp, 1);
+    for (var i = 0; i < particles.length; i++){
+      var p = particles[i]; p.x = p.ox; p.y = p.oy;
+      ctx.fillStyle = 'rgba('+COLOR[0]+','+COLOR[1]+','+COLOR[2]+','+(f*p.oa)+')';
+      ctx.fillRect(p.x, p.y, step, step);
+    }
+    if (fadeOp >= 1){
+      state = 'waiting';
+      setTimeout(function(){
+        for (var i = 0; i < particles.length; i++){ var p = particles[i]; p.op = p.oa; p.sp = 0; p.vx = 0; p.vy = 0; }
+        vapProg = 0; state = 'vaporizing';
+      }, T_WAIT);
+    }
+  }
+
+  function loop(now){
+    if (!inView){ raf = null; return; }
+    var dt = Math.min(0.05, (now - last)/1000); last = now;
+    if (state === 'vaporizing') vaporize(dt);
+    else if (state === 'fading') fadeIn(dt);
+    else draw();
+    raf = requestAnimationFrame(loop);
+  }
+  function startLoop(){ if (!raf){ last = performance.now(); raf = requestAnimationFrame(loop); } }
+  function setup(){ if (fitFont()){ build(); draw(); } }
+
+  setup();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setup);
+  var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(setup, 180); });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;  // titre statique
+
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ inView = e.isIntersecting; if (inView) startLoop(); });
+    }, { threshold: 0 }).observe(wrap);
+  } else { startLoop(); }
+
+  setTimeout(function(){ if (state === 'static'){ vapProg = 0; state = 'vaporizing'; startLoop(); } }, 1400);
+})();
+</script>
+
+</body>
+</html>

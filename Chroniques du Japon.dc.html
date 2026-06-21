@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Chroniques du Japon — Le Japon des samouraïs</title>
+<meta name="description" content="Une traversée visuelle de la civilisation japonaise : des mythes fondateurs au Japon contemporain, en passant par l'âge des samouraïs, la voie du katana et l'esprit de Miyamoto Musashi.">
+<meta name="theme-color" content="#0c1f30">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23b5402c'/%3E%3Ctext x='16' y='24' font-size='21' text-anchor='middle' fill='%23f6efdf' font-family='serif' font-weight='700'%3E和%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chroniques du Japon — Le Japon des samouraïs">
+<meta property="og:description" content="Une traversée visuelle de la civilisation japonaise : des mythes fondateurs au Japon contemporain, des samouraïs au katana.">
+<meta property="og:image" content="estampes/estame3D.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#e8ddc7;color:#1f1a14;font-family:'EB Garamond',Georgia,serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+::selection{background:#b5402c;color:#f6efdf}
+@keyframes petalFall{0%{transform:translate(0,-12vh) rotate(0deg);opacity:0}8%{opacity:.85}100%{transform:translate(70px,108vh) rotate(440deg);opacity:.12}}
+@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:.95}}
+@keyframes glowPulse{0%,100%{opacity:.45}50%{opacity:.8}}
+@keyframes hintNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
+@keyframes floatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes emberRise{0%{transform:translate(0,0) scale(1);opacity:0}12%{opacity:.95}100%{transform:translate(var(--ex,22px),-82vh) scale(.35);opacity:0}}
+@keyframes bannerWave{0%,100%{transform:skewY(0deg) translateY(0)}50%{transform:skewY(1.6deg) translateY(-7px)}}
+@keyframes bladeShine{0%{transform:translateX(-130%) skewX(-20deg)}55%,100%{transform:translateX(360%) skewX(-20deg)}}
+@keyframes unsheathe{0%{clip-path:inset(0 100% 0 0);opacity:0}14%{opacity:1}100%{clip-path:inset(0 0 0 0);opacity:1}}
+@keyframes inkReveal{0%{clip-path:inset(0 0 100% 0);opacity:0}100%{clip-path:inset(0 0 0 0);opacity:1}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes goldShimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes bloodMoon{0%,100%{box-shadow:0 0 70px 18px rgba(243,228,178,.30)}50%{box-shadow:0 0 104px 30px rgba(231,150,120,.46)}}
+@keyframes sealStamp{0%{transform:rotate(-4deg) scale(.3);opacity:0}55%{transform:rotate(7deg) scale(1.18);opacity:1}100%{transform:rotate(-4deg) scale(1);opacity:1}}
+@keyframes sparkPop{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1)}}
+@keyframes bladeDraw{to{stroke-dashoffset:0}}
+@keyframes pennantFlap{0%,100%{transform:scaleX(1) skewX(0)}50%{transform:scaleX(.94) skewX(-3deg)}}
+@keyframes scrollNudge{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(6px);opacity:1}}
+@keyframes kenburns{0%{transform:scale(1.02) translate(0,0)}50%{transform:scale(1.12) translate(-1.8%,-1.4%)}100%{transform:scale(1.02) translate(0,0)}}
+@keyframes cloudDrift{from{transform:translateX(-7%)}to{transform:translateX(7%)}}
+/* ---- titre héro : image de Kyoto illuminée qui défile dans les lettres ---- */
+@keyframes kyotoPan{0%{background-position:0% 45%}50%{background-position:100% 45%}100%{background-position:0% 45%}}
+@keyframes kyotoPanRev{0%{background-position:100% 45%}50%{background-position:0% 45%}100%{background-position:100% 45%}}
+.kyoto-title{
+  color:transparent;-webkit-text-fill-color:transparent;
+  background-image:url('estampes/hero-titre.jpg');
+  background-size:200% auto;background-repeat:no-repeat;background-position:50% 45%;
+  -webkit-background-clip:text;background-clip:text;
+  padding-bottom:.14em;          /* la zone de fond couvre les jambages (J, p) sinon coupés */
+  /* teinte feutrée + halo crème + ombre = lisibilité douce sur le bleu nuit */
+  filter:brightness(1.12) saturate(1.02) drop-shadow(0 0 2px rgba(246,239,223,.7)) drop-shadow(0 4px 14px rgba(0,0,0,.6));
+}
+.kyoto-title.t1{animation:kyotoPan 15s ease-in-out infinite}
+.kyoto-title.t2{animation:kyotoPanRev 17s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){
+  .kyoto-title{animation:none!important;background-position:50% 50%!important}
+}
+.brush-title{clip-path:inset(0 100% 0 0);-webkit-clip-path:inset(0 100% 0 0);transition:clip-path 1.15s cubic-bezier(.7,0,.2,1)}
+.brush-title.in{clip-path:inset(0 0 0 0);-webkit-clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion: reduce){.brush-title{clip-path:none!important;-webkit-clip-path:none!important}}
+
+/* ---- expressive components ---- */
+.nobori{display:flex}
+@media(max-width:1080px){.nobori{display:none!important}}
+.slice-card{position:relative;overflow:hidden}
+.slice-card .slash{position:absolute;top:-30%;left:-60%;width:55%;height:160%;background:linear-gradient(90deg,transparent,rgba(201,164,78,.6),transparent);transform:skewX(-20deg);opacity:0;pointer-events:none;z-index:2}
+.slice-card:hover .slash{opacity:1;animation:bladeShine 1.05s cubic-bezier(.6,0,.2,1)}
+.mag-btn{will-change:transform;transition:transform .2s ease,background .3s ease}
+.gold-text{background:linear-gradient(90deg,#b9923f 0%,#f3e0a8 30%,#c9a44e 55%,#f3e0a8 75%,#b9923f 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:goldShimmer 6s linear infinite}
+.tilt{transition:transform .3s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.marquee-track{display:inline-flex;white-space:nowrap;will-change:transform;animation:marquee 32s linear infinite}
+.marquee-band:hover .marquee-track{animation-play-state:paused}
+.k-svg [data-ksvg]{transition:opacity .35s ease,filter .35s ease}
+.k-svg [data-ksvg].dim{opacity:.22;filter:saturate(.4)}
+.k-chip{cursor:pointer;transition:border-color .3s ease,background .3s ease,color .3s ease,transform .3s ease}
+.k-chip:hover{transform:translateY(-2px)}
+.k-chip.active{background:#b5402c;border-color:#b5402c;color:#f6efdf}
+.k-hot{cursor:pointer}
+.k-hot .ring{transition:transform .3s ease,opacity .3s ease}
+.k-hot:hover .ring,.k-hot.active .ring{transform:scale(1.55);opacity:1}
+.k-hot .core{transition:fill .3s ease}
+.k-hot:hover .core,.k-hot.active .core{fill:#f0d9a0}
+@keyframes slowZoom{0%{transform:scale(1)}100%{transform:scale(1.09)}}
+.estampe-frame image-slot{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.estampe-frame:hover image-slot{transform:scale(1.08)}
+.estampe-frame.revealed .ink-hint{opacity:0}
+
+/* ---- grille dynamique des concepts samouraïs (inspirée de dynamic-frame-layout) ---- */
+[data-dyngrid]{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);height:clamp(480px,62vh,600px)}
+[data-dyngrid] > .dyn-card{min-width:0;min-height:0;height:100%}
+[data-dyngrid] .dyn-card{transition:background .4s ease,box-shadow .45s ease,filter .4s ease}
+[data-dyngrid] .dyn-card:hover{box-shadow:inset 0 0 0 1px rgba(201,164,78,.6),inset 0 0 70px rgba(201,164,78,.07)}
+[data-dyngrid] .dyn-card > div{transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+[data-dyngrid] .dyn-card:hover > div{transform:scale(1.08)}
+[data-dyngrid] .dyn-card h3{transition:color .4s ease}
+[data-dyngrid] .dyn-card:hover h3{color:#f3e0a8}
+[data-dyngrid] .dyn-card p{transition:opacity .4s ease}
+[data-dyngrid] .dyn-kanji{transition:transform .6s cubic-bezier(.2,.7,.2,1),color .6s ease}
+[data-dyngrid] .dyn-card:hover .dyn-kanji{transform:scale(1.32) rotate(-3deg);color:rgba(201,164,78,.2)}
+/* focus : quand une carte est survolée, les autres s'estompent */
+[data-dyngrid]:hover .dyn-card:not(:hover){filter:saturate(.85) brightness(.9)}
+[data-dyngrid]:hover .dyn-card:not(:hover) p{opacity:.4}
+@media(max-width:900px){[data-dyngrid]{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:clamp(206px,30vw,250px);height:auto}}
+@media(max-width:560px){[data-dyngrid]{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:auto;height:auto}}
+
+/* ---- shine border : bordure « rouge sang » permanente + reflet animé (Culture & Héritage) ---- */
+.beam{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;--sb-bw:1.6px;--sb-dur:8s}
+/* reflet animé : un gradient radial qui balaie la bordure */
+.beam::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:var(--sb-bw);
+  background-image:radial-gradient(transparent,transparent,#d61f2a,#6a040f,transparent,transparent);
+  background-size:300% 300%;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+          mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  animation:shine var(--sb-dur) linear infinite;
+}
+/* base permanente : la bordure rouge sang reste visible tout autour, en continu */
+.beam::after{content:"";position:absolute;inset:0;border-radius:inherit;border:var(--sb-bw) solid rgba(150,12,20,.3)}
+@keyframes shine{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+/* reflets décalés d'une carte à l'autre */
+.slice-card:nth-child(2n) .beam::before{animation-delay:-2.5s}
+.slice-card:nth-child(3n) .beam::before{animation-delay:-5s}
+.slice-card:nth-child(4n) .beam::before{animation-delay:-7.5s}
+/* mouvement réduit : bordure conservée, reflet figé */
+@media (prefers-reduced-motion: reduce){.beam::before{animation:none}}
+/* repli si le masquage n'est pas supporté : on garde la bordure permanente, on retire le reflet */
+@supports not ((mask-composite:exclude) or (-webkit-mask-composite:xor)){.beam::before{display:none}}
+/* grille samouraïs (serrée) : liseré plus discret pour éviter un quadrillage trop chargé */
+.dyn-card .beam{--sb-bw:1.2px}
+.dyn-card .beam::after{border-color:rgba(186,42,30,.2)}
+
+/* ---- Musashi : maxime dynamique (cascade au clic) + liseré sur la carte ---- */
+.mus-card .beam{z-index:3;--sb-bw:1.6px}
+.mus-card .beam::after{border-color:rgba(200,30,38,.5)}
+.mus-quote{pointer-events:auto;display:block;width:100%;text-align:left;background:none;border:0;padding:0;margin:0;cursor:pointer;color:inherit;font:inherit}
+.mus-text{display:block;font-family:'Shippori Mincho',serif;font-weight:600;font-size:clamp(24px,3.2vw,42px);line-height:1.34;color:#f6efdf;text-wrap:balance;margin-bottom:10px}
+.mus-text .ch{display:inline-block;transition:transform .3s ease,opacity .3s ease;will-change:transform,opacity}
+.mus-sub{display:block;font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(15px,1.5vw,18px);line-height:1.6;color:#b9c3cc;transition:opacity .35s ease}
+.mus-hint{pointer-events:none;display:inline-flex;align-items:center;gap:7px;font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7c8a96;margin:14px 0 26px;transition:color .3s ease}
+.mus-quote:hover .mus-text,.mus-quote:focus-visible .mus-text{color:#fbeed7}
+.mus-quote:hover + .mus-hint,.mus-quote:focus-visible + .mus-hint{color:#dcc079}
+.mus-quote:focus-visible{outline:2px solid #dcc079;outline-offset:6px;border-radius:6px}
+
+/* ---- transition "coup de sabre" entre les blocs ---- */
+.slash-sep{position:relative;height:0;z-index:30;pointer-events:none}
+.slash-sep .blade-line{position:absolute;left:6%;right:6%;top:-1px;height:2px;background:linear-gradient(90deg,transparent,rgba(201,164,78,.85) 12%,#f3e0a8 50%,rgba(201,164,78,.85) 88%,transparent);transform:scaleX(0);transform-origin:left center;transition:transform 1s cubic-bezier(.7,0,.2,1)}
+.slash-sep.cut .blade-line{transform:scaleX(1)}
+.slash-sep .glint{position:absolute;top:-9px;left:0;width:34px;height:20px;border-radius:50%;background:radial-gradient(circle,rgba(255,250,235,.95),rgba(243,224,168,.5) 40%,transparent 72%);opacity:0;transform:translateX(0)}
+.slash-sep.cut .glint{animation:glintRun 1s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes glintRun{0%{opacity:0;left:6%}10%{opacity:1}90%{opacity:1}100%{opacity:0;left:94%}}
+.slash-sep .nick{position:absolute;left:50%;top:-6px;transform:translateX(-50%) rotate(45deg);width:11px;height:11px;border:2px solid #c9a44e;background:#0f2030;opacity:0;transition:opacity .5s ease .6s}
+.slash-sep.cut .nick{opacity:1}
+.slash-sep .kref{position:absolute;left:50%;top:6px;transform:translateX(-50%);font-family:'Shippori Mincho',serif;font-size:13px;color:#c9a44e;opacity:0;transition:opacity .5s ease .7s}
+.slash-sep.cut .kref{opacity:.9}
+
+/* diagonal "slice" reveal for section content */
+[data-slice]{clip-path:polygon(0 0,0 0,-35% 100%,-35% 100%);transition:clip-path 1.1s cubic-bezier(.7,0,.2,1),opacity 1.1s ease;opacity:0}
+[data-slice].sliced{clip-path:polygon(0 0,135% 0,100% 100%,0 100%);opacity:1}
+
+/* barre de progression : lame de katana en haut de page */
+.scroll-blade{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,#9c3220,#b5402c 40%,#c9a44e 100%);box-shadow:0 0 10px rgba(201,164,78,.6);transition:width .08s linear}
+.scroll-blade::after{content:"";position:absolute;right:-2px;top:50%;transform:translateY(-50%) rotate(45deg);width:8px;height:8px;background:#f3e0a8;box-shadow:0 0 8px rgba(243,224,168,.9)}
+
+/* ---- a11y : mouvement réduit ---- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+.anim-paused, .anim-paused *{animation-play-state:paused!important}
+.skip-link{position:fixed;left:12px;top:-60px;z-index:200;background:#b5402c;color:#f6efdf;padding:10px 16px;border-radius:6px;font-family:'EB Garamond',serif;letter-spacing:.1em;text-decoration:none;transition:top .25s ease}
+.skip-link:focus{top:12px}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #dcc079;outline-offset:3px;border-radius:4px}
+
+/* ---- nav mobile / hamburger ---- */
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;width:42px;height:42px;align-items:center;justify-content:center;color:inherit}
+.nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{display:block;width:22px;height:2px;background:currentColor;transition:transform .3s ease,opacity .3s ease}
+.nav-toggle span{position:relative}
+.nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:0}
+.nav-toggle span::before{top:-7px}.nav-toggle span::after{top:7px}
+.nav-open .nav-toggle span{background:transparent}
+.nav-open .nav-toggle span::before{transform:translateY(7px) rotate(45deg)}
+.nav-open .nav-toggle span::after{transform:translateY(-7px) rotate(-45deg)}
+[data-navlinks] a.active{opacity:1;color:#c9a44e}
+@media(max-width:760px){
+  .nav-toggle{display:inline-flex}
+  [data-navlinks]{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);flex-direction:column!important;align-items:flex-start!important;justify-content:center;gap:24px!important;padding:0 34px;background:rgba(12,31,48,.97);transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.7,.2,1);font-size:18px!important}
+  .nav-open [data-navlinks]{transform:translateX(0)}
+  [data-navlinks] a{color:#f6efdf!important;opacity:.92}
+}
+
+/* ---- dot navigation ---- */
+.dotnav{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:45;display:flex;flex-direction:column;gap:14px}
+.dotnav a{position:relative;width:11px;height:11px;border-radius:50%;border:1px solid rgba(201,164,78,.6);background:transparent;transition:background .3s,transform .3s}
+.dotnav a.active{background:#c9a44e;transform:scale(1.3)}
+.dotnav a::after{content:attr(data-label);position:absolute;right:22px;top:50%;transform:translateY(-50%);white-space:nowrap;font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.1em;color:#f6efdf;background:rgba(12,31,48,.88);padding:3px 9px;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .25s}
+.dotnav a:hover::after{opacity:1}
+@media(max-width:900px){.dotnav{display:none}}
+
+/* ---- timeline filter ---- */
+.tl-chip{cursor:pointer;border:1px solid transparent;background:transparent;font:inherit;border-radius:999px;padding:5px 4px;transition:border-color .3s,opacity .3s}
+.tl-chip[aria-pressed="true"]{border-color:currentColor}
+.tl-dim{opacity:.24;filter:saturate(.5);transition:opacity .4s,filter .4s}
+
+/* ---- modale de détail d'époque ---- */
+.era-modal{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);background:rgba(8,16,26,.74);opacity:0;pointer-events:none;transition:opacity .35s ease}
+.era-modal.open{opacity:1;pointer-events:auto}
+.era-dialog{position:relative;max-width:680px;width:100%;max-height:88vh;overflow:auto;background:#f4ecd8;color:#1b160f;border-radius:14px;border:1px solid rgba(201,164,78,.5);box-shadow:0 40px 100px rgba(0,0,0,.6);transform:translateY(22px) scale(.98);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.era-modal.open .era-dialog{transform:none}
+.era-close{position:absolute;top:13px;right:13px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(31,26,20,.2);background:rgba(255,255,255,.65);cursor:pointer;font-size:17px;color:#1b160f;display:grid;place-items:center;line-height:1}
+
+/* ---- bouton son ---- */
+.sound-btn{position:fixed;right:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:10px;background:rgba(12,31,48,.9);color:#f6efdf;border:1px solid rgba(201,164,78,.5);border-radius:999px;padding:10px 16px;cursor:pointer;font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 8px 22px rgba(0,0,0,.4)}
+.sound-btn .bars{display:inline-flex;align-items:flex-end;gap:2px;height:14px}
+.sound-btn .bars i{width:2.5px;background:#c9a44e;height:4px;border-radius:1px}
+.sound-btn.playing .bars i{animation:soundbar .9s ease-in-out infinite}
+.sound-btn.playing .bars i:nth-child(2){animation-delay:.2s}
+.sound-btn.playing .bars i:nth-child(3){animation-delay:.4s}
+.sound-btn.playing .bars i:nth-child(4){animation-delay:.6s}
+@keyframes soundbar{0%,100%{height:4px}50%{height:14px}}
+@media(max-width:760px){.sound-btn{right:12px;bottom:12px;padding:9px 13px;font-size:11px}}
+</style>
+<script src="image-slot.js"></script>
+</helmet>
+
+<svg aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.05;z-index:2;mix-blend-mode:multiply">
+  <filter id="washiNoise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"></feTurbulence></filter>
+  <rect width="100%" height="100%" filter="url(#washiNoise)"></rect>
+</svg>
+
+<a href="#chronologie" class="skip-link">Aller au contenu</a>
+<div class="scroll-blade" data-scrollblade="" aria-hidden="true"></div>
+
+<nav data-nav="" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px clamp(20px,5vw,64px);color:#f6efdf;background:rgba(15,36,54,0);border-bottom:1px solid rgba(246,239,223,0);transition:background .5s ease,color .5s ease,border-color .5s ease">
+  <a href="#top" style="display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit">
+    <span style="display:grid;place-items:center;width:34px;height:34px;background:#b5402c;color:#f6efdf;border-radius:7px;font-family:'Shippori Mincho',serif;font-weight:700;font-size:19px;transform:rotate(-3deg);box-shadow:0 2px 8px rgba(120,30,18,.4)">和</span>
+    <span style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:18px;letter-spacing:.04em">Chroniques du Japon</span>
+  </a>
+  <div data-navlinks="" style="display:flex;align-items:center;gap:clamp(14px,2.4vw,32px);font-family:'EB Garamond',serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase">
+    <a href="#chronologie" style="color:inherit;text-decoration:none;opacity:.82" style-hover="opacity:1">Chronologie</a>
+    <a href="#samourais" style="color:inherit;text-decoration:none;opacity:.82" style-hover="opacity:1">Samouraïs</a>
+    <a href="#katana" style="color:inherit;text-decoration:none;opacity:.82" style-hover="opacity:1">Katana</a>
+    <a href="#culture" style="color:inherit;text-decoration:none;opacity:.82" style-hover="opacity:1">Culture</a>
+    <a href="#heritage" style="color:inherit;text-decoration:none;opacity:.82" style-hover="opacity:1">Héritage</a>
+    <a href="#musashi" style="color:inherit;text-decoration:none;opacity:.82" style-hover="opacity:1">Musashi</a>
+    <a href="ressources.html" style="color:inherit;text-decoration:none;opacity:.82" style-hover="opacity:1">Ressources</a>
+  </div>
+  <button class="nav-toggle" data-navtoggle="" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+</nav>
+
+<nav class="dotnav" data-dotnav="" aria-label="Sections">
+  <a href="#top" data-label="Accueil"></a>
+  <a href="#chronologie" data-label="Chronologie"></a>
+  <a href="#samourais" data-label="Samouraïs"></a>
+  <a href="#katana" data-label="Katana"></a>
+  <a href="#culture" data-label="Culture"></a>
+  <a href="#heritage" data-label="Héritage"></a>
+  <a href="#musashi" data-label="Musashi"></a>
+</nav>
+
+<button class="sound-btn" data-soundbtn="" type="button" aria-pressed="false" aria-label="Activer l'ambiance sonore"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-soundlabel="">Ambiance</span></button>
+
+<div class="era-modal" data-eramodal="" role="dialog" aria-modal="true" aria-labelledby="era-modal-title" aria-hidden="true">
+  <div class="era-dialog">
+    <button class="era-close" data-eraclose="" type="button" aria-label="Fermer">✕</button>
+    <div style="position:relative;padding:clamp(26px,4vw,44px)">
+      <span data-era-kanji="" aria-hidden="true" style="position:absolute;top:6px;right:18px;font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(96px,14vw,150px);line-height:.8;color:rgba(30,58,82,.08);user-select:none;pointer-events:none">時</span>
+      <div style="position:relative;z-index:1">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <span data-era-no="" style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:15px;color:#b5402c">01</span>
+          <span data-era-label="" style="font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:#b5402c;padding:4px 11px;border-radius:999px">Époque</span>
+        </div>
+        <h3 id="era-modal-title" data-era-name="" style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(26px,3.4vw,38px);line-height:1.1;color:#1b160f;margin-bottom:4px">Époque</h3>
+        <p data-era-dates="" style="font-family:'EB Garamond',serif;font-style:italic;font-size:17px;color:#b5402c;margin-bottom:6px">—</p>
+        <p data-era-ambiance="" style="font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#8a7d68;margin-bottom:18px">—</p>
+        <p data-era-detail="" style="font-size:16px;line-height:1.7;color:#3b3328;margin-bottom:22px">—</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(31,26,20,.14)">
+          <span style="display:flex;align-items:center;gap:9px;font-family:'EB Garamond',serif;font-size:14px;color:#5b5142"><span style="text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:#8a7d68">Emblème</span> · <span data-era-emblem="">—</span></span>
+          <svg data-era-map="" width="70" height="92" viewBox="0 0 70 92" aria-hidden="true" style="flex:none"></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section data-scrollhero="" style="position:relative;height:100vh;overflow:hidden;background:#0a1622">
+  <div data-sh-bg="" aria-hidden="true" style="position:absolute;inset:0;z-index:0;will-change:opacity">
+    <img src="estampes/estampe3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;filter:blur(3px) brightness(.7) saturate(.85);transform:scale(1.06)">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(10,22,34,.25),rgba(8,16,26,.78))"></div>
+  </div>
+
+  <span data-sh-kanji="" aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Shippori Mincho',serif;font-weight:800;font-size:min(58vw,720px);line-height:1;color:rgba(201,164,78,.06);user-select:none;pointer-events:none;z-index:1">侍</span>
+
+  <div data-sh-stage="" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2">
+    <div data-sh-box="" style="position:relative;width:300px;height:400px;max-width:95vw;max-height:85vh;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55);border:1px solid rgba(201,164,78,.35)">
+      <video data-sh-video="" src="estampes/estampe1.mp4" poster="estampes/estampe1.jpg" autoplay muted loop playsinline preload="auto" style="width:100%;height:100%;object-fit:cover"></video>
+      <div data-sh-dim="" style="position:absolute;inset:0;background:#05101a;opacity:.5;pointer-events:none"></div>
+      <canvas data-ink="" data-ink-mask="83,90,98" data-ink-alpha="0.6" data-ink-brush="150" data-ink-life="900" style="position:absolute;inset:0;z-index:2;cursor:none"></canvas>
+      <span aria-hidden="true" style="position:absolute;inset:0;z-index:3;pointer-events:none;box-shadow:inset 0 0 70px rgba(5,16,26,.6)"></span>
+      <span class="ink-hint" aria-hidden="true" style="position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:4;pointer-events:none;white-space:nowrap;font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#e7dcc4;background:rgba(9,19,30,.7);padding:5px 12px;border:1px solid rgba(201,164,78,.4);border-radius:3px;transition:opacity .6s ease">墨 · Effleurez pour révéler</span>
+    </div>
+  </div>
+
+  <div data-sh-titles="" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:3;pointer-events:none;gap:clamp(4px,1vw,12px)">
+    <h2 data-sh-t1="" class="kyoto-title t1" style="margin:0;font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(34px,7vw,84px);line-height:1.2;color:transparent;letter-spacing:.01em;white-space:nowrap;will-change:transform">Le Japon</h2>
+    <h2 data-sh-t2="" class="kyoto-title t2" style="margin:0;font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(34px,7vw,84px);line-height:1.2;color:transparent;letter-spacing:.01em;white-space:nowrap;will-change:transform">des samouraïs</h2>
+  </div>
+
+  <div data-sh-meta="" style="position:absolute;left:0;right:0;bottom:11%;z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;pointer-events:none;will-change:opacity">
+    <span style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.34em;text-transform:uppercase;color:#dcc079">和 · Chroniques du Japon</span>
+    <span style="display:flex;flex-direction:column;align-items:center;gap:7px;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#cdbb98">Défilez pour dévoiler<span style="font-size:20px;line-height:1;animation:scrollNudge 1.6s ease-in-out infinite">⌄</span></span>
+    <button data-sh-skip="" type="button" style="margin-top:6px;pointer-events:auto;background:rgba(246,239,223,.06);color:#f1e3c4;border:1px solid rgba(201,164,78,.5);border-radius:999px;padding:9px 22px;cursor:pointer;font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase">Entrer ⏎</button>
+  </div>
+</section>
+
+<header id="top" data-hero="" style="position:relative;min-height:100vh;overflow:hidden;background:linear-gradient(180deg,#0c1f30 0%,#13283c 42%,#1b3a54 74%,#244764 100%);display:flex;align-items:center">
+
+  <span aria-hidden="true" style="position:absolute;top:8%;left:6%;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 3.5s ease-in-out infinite"></span>
+  <span aria-hidden="true" style="position:absolute;top:14%;left:18%;width:3px;height:3px;background:#fff;border-radius:50%;animation:twinkle 4.2s .4s ease-in-out infinite"></span>
+  <span aria-hidden="true" style="position:absolute;top:10%;left:34%;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 5s 1s ease-in-out infinite"></span>
+  <span aria-hidden="true" style="position:absolute;top:22%;left:52%;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 3.8s .8s ease-in-out infinite"></span>
+  <span aria-hidden="true" style="position:absolute;top:7%;left:68%;width:3px;height:3px;background:#fff;border-radius:50%;animation:twinkle 4.6s 1.4s ease-in-out infinite"></span>
+  <span aria-hidden="true" style="position:absolute;top:18%;left:82%;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 4s .2s ease-in-out infinite"></span>
+  <span aria-hidden="true" style="position:absolute;top:28%;left:12%;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 5.4s 1.8s ease-in-out infinite"></span>
+  <span aria-hidden="true" style="position:absolute;top:30%;left:90%;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 4.4s .6s ease-in-out infinite"></span>
+
+  <div data-moon="" aria-hidden="true" style="position:absolute;top:9%;right:11%;width:min(330px,46vw);height:min(330px,46vw);border-radius:50%;background:radial-gradient(circle at 38% 36%,#f7eecb 0%,#efdfa9 45%,#e6cf90 72%,#d8bd79 100%);box-shadow:0 0 70px 18px rgba(243,228,178,.32);z-index:1">
+    <span style="position:absolute;inset:-26px;border-radius:50%;background:radial-gradient(circle,rgba(243,228,178,.30),transparent 68%);animation:glowPulse 7s ease-in-out infinite"></span>
+  </div>
+
+  <sc-if value="{{ showKanji }}" hint-placeholder-val="{{ true }}">
+    <span data-hero-kanji="" aria-hidden="true" style="position:absolute;top:8%;left:4%;font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(120px,18vw,260px);line-height:.9;color:rgba(246,239,223,0.05);writing-mode:vertical-rl;z-index:1;user-select:none;transition:transform .5s cubic-bezier(.2,.7,.2,1)">日本</span>
+  </sc-if>
+
+  <div data-cloud="" aria-hidden="true" style="position:absolute;top:15%;left:6%;z-index:1;pointer-events:none;transition:transform .6s cubic-bezier(.2,.7,.2,1)">
+    <div style="width:min(300px,42vw);height:50px;background:radial-gradient(closest-side,rgba(220,228,235,.16),transparent);filter:blur(7px);border-radius:50%;animation:cloudDrift 28s ease-in-out infinite alternate"></div>
+  </div>
+  <div data-cloud="" aria-hidden="true" style="position:absolute;top:31%;left:52%;z-index:1;pointer-events:none;transition:transform .6s cubic-bezier(.2,.7,.2,1)">
+    <div style="width:min(240px,34vw);height:42px;background:radial-gradient(closest-side,rgba(220,228,235,.13),transparent);filter:blur(7px);border-radius:50%;animation:cloudDrift 36s 2s ease-in-out infinite alternate-reverse"></div>
+  </div>
+
+  <div data-fuji="" aria-hidden="true" style="position:absolute;left:0;right:0;bottom:104px;height:31%;z-index:1;pointer-events:none">
+    <div style="position:absolute;bottom:0;left:-10%;width:60%;height:58%;background:#102333;clip-path:polygon(0 100%,0 62%,32% 24%,62% 54%,100% 36%,100% 100%)"></div>
+    <div style="position:absolute;bottom:0;right:-10%;width:56%;height:50%;background:#0d1e2d;clip-path:polygon(0 100%,0 46%,44% 20%,80% 52%,100% 42%,100% 100%)"></div>
+    <div style="position:absolute;bottom:0;left:58%;transform:translateX(-50%);width:min(500px,72vw);height:100%;background:linear-gradient(180deg,#173551 0%,#0d2236 74%);clip-path:polygon(50% 7%,61% 30%,100% 100%,0 100%,39% 30%)"></div>
+    <div style="position:absolute;bottom:0;left:58%;transform:translateX(-50%);width:min(500px,72vw);height:100%"><div style="position:absolute;left:50%;top:7%;transform:translateX(-50%);width:min(108px,16vw);height:min(70px,11vw);background:linear-gradient(180deg,#dfe7eb 0%,#bcccd4 50%,rgba(188,204,212,0) 100%);clip-path:polygon(50% 0,70% 50%,57% 43%,50% 58%,43% 43%,30% 50%);opacity:.72"></div></div>
+  </div>
+
+  <div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:104px;z-index:2;background-color:#1b3a54;background-image:radial-gradient(circle at 100% 150%, #1b3a54 24%, #cdbb98 25%, #cdbb98 28%, #1b3a54 29%, #1b3a54 36%, #cdbb98 36%, #cdbb98 40%, transparent 40%, transparent),radial-gradient(circle at 0 150%, #1b3a54 24%, #cdbb98 25%, #cdbb98 28%, #1b3a54 29%, #1b3a54 36%, #cdbb98 36%, #cdbb98 40%, transparent 40%, transparent),radial-gradient(circle at 50% 100%, #cdbb98 10%, #1b3a54 11%, #1b3a54 23%, #cdbb98 24%, #cdbb98 30%, #1b3a54 31%, #1b3a54 43%, #cdbb98 44%, #cdbb98 50%, #1b3a54 51%, #1b3a54 63%, #cdbb98 64%, #cdbb98 71%, transparent 71%, transparent),radial-gradient(circle at 100% 50%, #cdbb98 5%, #1b3a54 6%, #1b3a54 15%, #cdbb98 16%, #cdbb98 20%, #1b3a54 21%, #1b3a54 30%, #cdbb98 31%, #cdbb98 35%, #1b3a54 36%, #1b3a54 45%, #cdbb98 46%, #cdbb98 49%, transparent 50%, transparent),radial-gradient(circle at 0 50%, #cdbb98 5%, #1b3a54 6%, #1b3a54 15%, #cdbb98 16%, #cdbb98 20%, #1b3a54 21%, #1b3a54 30%, #cdbb98 31%, #cdbb98 35%, #1b3a54 36%, #1b3a54 45%, #cdbb98 46%, #cdbb98 49%, transparent 50%, transparent);background-size:80px 40px"></div>
+
+  <sc-if value="{{ showPetals }}" hint-placeholder-val="{{ true }}">
+    <div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;z-index:3;pointer-events:none">
+      <span style="position:absolute;top:-5%;left:6%;width:13px;height:9px;background:#e7b6bf;border-radius:100% 0 100% 0;animation:petalFall 11s linear infinite"></span>
+      <span style="position:absolute;top:-5%;left:16%;width:10px;height:7px;background:#eccacf;border-radius:100% 0 100% 0;animation:petalFall 14s 2s linear infinite"></span>
+      <span style="position:absolute;top:-5%;left:27%;width:14px;height:10px;background:#f0d2cf;border-radius:100% 0 100% 0;animation:petalFall 9.5s 1s linear infinite"></span>
+      <span style="position:absolute;top:-5%;left:38%;width:11px;height:8px;background:#e7b6bf;border-radius:100% 0 100% 0;animation:petalFall 13s 3.5s linear infinite"></span>
+      <span style="position:absolute;top:-5%;left:47%;width:9px;height:6px;background:#eccacf;border-radius:100% 0 100% 0;animation:petalFall 16s .5s linear infinite"></span>
+      <span style="position:absolute;top:-5%;left:58%;width:13px;height:9px;background:#f0d2cf;border-radius:100% 0 100% 0;animation:petalFall 10.5s 2.5s linear infinite"></span>
+      <span style="position:absolute;top:-5%;left:66%;width:11px;height:8px;background:#e7b6bf;border-radius:100% 0 100% 0;animation:petalFall 12.5s 4s linear infinite"></span>
+      <span style="position:absolute;top:-5%;left:74%;width:10px;height:7px;background:#eccacf;border-radius:100% 0 100% 0;animation:petalFall 15s 1.5s linear infinite"></span>
+      <span style="position:absolute;top:-5%;left:84%;width:14px;height:10px;background:#f0d2cf;border-radius:100% 0 100% 0;animation:petalFall 9s 3s linear infinite"></span>
+      <span style="position:absolute;top:-5%;left:92%;width:11px;height:8px;background:#e7b6bf;border-radius:100% 0 100% 0;animation:petalFall 13.5s .8s linear infinite"></span>
+    </div>
+  </sc-if>
+
+  <div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;z-index:3;pointer-events:none">
+    <span style="position:absolute;bottom:9%;left:9%;width:4px;height:4px;border-radius:50%;background:#f3b878;box-shadow:0 0 9px 2px rgba(243,160,100,.75);--ex:30px;animation:emberRise 9s linear infinite"></span>
+    <span style="position:absolute;bottom:6%;left:23%;width:3px;height:3px;border-radius:50%;background:#f0a060;box-shadow:0 0 8px 2px rgba(240,140,80,.7);--ex:-24px;animation:emberRise 12s 1.5s linear infinite"></span>
+    <span style="position:absolute;bottom:11%;left:41%;width:5px;height:5px;border-radius:50%;background:#f5c890;box-shadow:0 0 10px 3px rgba(243,170,110,.7);--ex:40px;animation:emberRise 10.5s .8s linear infinite"></span>
+    <span style="position:absolute;bottom:7%;left:57%;width:3px;height:3px;border-radius:50%;background:#f0a060;box-shadow:0 0 8px 2px rgba(240,140,80,.7);--ex:-30px;animation:emberRise 13s 2.4s linear infinite"></span>
+    <span style="position:absolute;bottom:10%;left:72%;width:4px;height:4px;border-radius:50%;background:#f3b878;box-shadow:0 0 9px 2px rgba(243,160,100,.75);--ex:26px;animation:emberRise 11s 1s linear infinite"></span>
+    <span style="position:absolute;bottom:8%;left:88%;width:5px;height:5px;border-radius:50%;background:#f5c890;box-shadow:0 0 11px 3px rgba(243,170,110,.7);--ex:-36px;animation:emberRise 9.5s 3s linear infinite"></span>
+  </div>
+
+  <div class="nobori" aria-hidden="true" style="position:absolute;left:clamp(10px,3.2vw,52px);top:15%;z-index:3;flex-direction:column;align-items:center;transform-origin:top center;animation:bannerWave 5.5s ease-in-out infinite">
+    <span style="width:13px;height:13px;border-radius:50%;background:#7a2418;margin-bottom:-1px"></span>
+    <span style="width:2px;height:14px;background:#7a2418"></span>
+    <div style="width:clamp(36px,4vw,50px);min-height:248px;background:linear-gradient(180deg,#9c3220,#771f14);box-shadow:0 16px 32px rgba(0,0,0,.45);padding:20px 0;display:flex;justify-content:center;border:1px solid rgba(201,164,78,.32)">
+      <span style="writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(22px,2.6vw,30px);color:#f1e3c4;letter-spacing:.2em">武士道</span>
+    </div>
+  </div>
+  <div class="nobori" aria-hidden="true" style="position:absolute;right:clamp(10px,3.2vw,52px);top:13%;z-index:3;flex-direction:column;align-items:center;transform-origin:top center;animation:bannerWave 6.2s .7s ease-in-out infinite">
+    <span style="width:13px;height:13px;border-radius:50%;background:#3a2a16;margin-bottom:-1px"></span>
+    <span style="width:2px;height:14px;background:#3a2a16"></span>
+    <div style="width:clamp(36px,4vw,50px);min-height:224px;background:linear-gradient(180deg,#2a4358,#16314a);box-shadow:0 16px 32px rgba(0,0,0,.45);padding:20px 0;display:flex;justify-content:center;border:1px solid rgba(201,164,78,.32)">
+      <span style="writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(22px,2.6vw,30px);color:#dcc079;letter-spacing:.2em">一期一会</span>
+    </div>
+  </div>
+
+  <div style="position:relative;z-index:4;width:100%;max-width:1280px;margin:0 auto;padding:0 clamp(22px,6vw,80px);display:flex;align-items:center;gap:clamp(24px,5vw,72px);flex-wrap:wrap">
+
+
+    <div style="flex:1 1 420px;min-width:300px">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px">
+        <span style="width:42px;height:1px;background:#c9a44e"></span>
+        <span style="font-family:'EB Garamond',serif;font-size:14px;letter-spacing:.34em;text-transform:uppercase;color:#dcc079">Civilisation japonaise · 日本</span>
+      </div>
+      <h1 style="font-family: 'Shippori Mincho',serif; font-weight: 700; color: #f6efdf; font-size: clamp(46px,7.2vw,92px); line-height: 1.02; letter-spacing: -0.01em; margin-bottom: 22px; text-wrap: balance; position: relative">Le Japon des <span class="gold-text">samouraïs</span></h1>
+      <div aria-hidden="true" style="max-width:30em;margin-bottom:26px">
+        <svg width="100%" height="22" viewBox="0 0 460 22" style="overflow:visible;display:block;animation:unsheathe 1.7s .35s cubic-bezier(.2,.7,.2,1) both">
+          <defs><linearGradient id="heroBlade" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#7a8694"></stop><stop offset=".5" stop-color="#f6f9fc"></stop><stop offset="1" stop-color="#aab4be"></stop></linearGradient></defs>
+          <rect x="0" y="7" width="58" height="8" rx="2.5" fill="#241007"></rect>
+          <rect x="6" y="9" width="46" height="1.4" fill="#c9a44e" opacity=".55"></rect>
+          <circle cx="64" cy="11" r="8.5" fill="#3a2a16" stroke="#c9a44e" stroke-width="1.5"></circle>
+          <path d="M74 8.4 L444 6.6 Q458 8.4 452 11.4 L74 14.2 Z" fill="url(#heroBlade)"></path>
+          <path d="M82 9.2 L446 7.6" stroke="#ffffff" stroke-width=".8" opacity=".65"></path>
+          <circle cx="452" cy="9.6" r="1.6" fill="#fff"><animate attributeName="opacity" values="0;1;0" dur="2.4s" repeatCount="indefinite"></animate></circle>
+        </svg>
+      </div>
+      <p style="max-width:30em;color:#d9cfb9;font-size:clamp(17px,1.5vw,21px);line-height:1.62;margin-bottom:38px">Une traversée visuelle de la civilisation japonaise, des mythes fondateurs à l'ère contemporaine — au fil du tranchant.</p>
+      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+        <a href="#chronologie" class="mag-btn" style="display:inline-flex;align-items:center;gap:12px;background:#b5402c;color:#f6efdf;text-decoration:none;font-family:'EB Garamond',serif;font-size:15px;letter-spacing:.14em;text-transform:uppercase;padding:15px 32px;border-radius:999px;box-shadow:0 10px 26px rgba(120,30,18,.34)" style-hover="background:#9c3220">Explorer la chronologie <span style="font-size:18px">→</span></a>
+        <span style="font-family:'EB Garamond',serif;font-style:italic;color:#b9ad93;font-size:15px">17 époques · des kami au Japon contemporain</span>
+      </div>
+    </div><div style="flex:0 1 360px;min-width:240px;display:flex;justify-content:center">
+      <div class="estampe-frame" style="position:relative;padding:12px;background:rgba(246,239,223,0.06);border:1px solid rgba(201,164,78,.45);border-radius:6px;box-shadow:0 30px 70px rgba(0,0,0,.4);animation:floatSlow 7s ease-in-out infinite">
+        <div style="position:relative;overflow:hidden;border-radius:3px;width:min(330px,70vw);height:min(486px,100vw)">
+          <video src="estampes/estampe1.mp4" autoplay muted loop playsinline poster="estampes/estampe1.jpg" style="display:block;width:100%;height:100%;object-fit:cover;animation:slowZoom 16s ease-in-out infinite alternate"></video>
+          <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(12,31,48,.18) 0%,transparent 26%,transparent 64%,rgba(12,31,48,.5) 100%);mix-blend-mode:multiply"></span>
+          <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 60px rgba(8,18,28,.55)"></span>
+        </div>
+        <span style="position:absolute;top:-12px;left:18px;font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#dcc079;background:#0c1f30;padding:3px 10px;border:1px solid rgba(201,164,78,.4);border-radius:3px">浮世絵 · Estampe animée</span>
+        <span style="position:absolute;bottom:-15px;right:14px;display:grid;place-items:center;width:40px;height:40px;background:#b5402c;color:#f6efdf;border-radius:7px;font-family:'Shippori Mincho',serif;font-weight:700;font-size:21px;transform:rotate(-4deg);box-shadow:0 4px 12px rgba(0,0,0,.35)">侍</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:absolute;left:50%;bottom:118px;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;color:#cdbb98">
+    <span style="font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.28em;text-transform:uppercase">Défiler</span>
+    <span style="width:1px;height:34px;background:linear-gradient(180deg,#cdbb98,transparent)"></span>
+  </div>
+</header>
+
+<section style="background:#e8ddc7;padding:clamp(84px,13vh,168px) clamp(22px,6vw,80px);scroll-margin-top:80px">
+  <div data-reveal="" style="max-width:760px;margin:0 auto;text-align:center;opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease">
+    <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:30px">
+      <span style="width:34px;height:1px;background:#b5402c"></span>
+      <span style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:#b5402c">Introduction</span>
+      <span style="width:34px;height:1px;background:#b5402c"></span>
+    </div>
+    <p style="font-family:'Shippori Mincho',serif;font-weight:500;font-size:clamp(21px,2.4vw,30px);line-height:1.6;color:#211b14;text-wrap:pretty;margin-bottom:26px">Avant d'être une puissance moderne, le Japon fut un archipel de mythes, de clans, de rites, de poètes, d'empereurs, de guerriers et d'artisans.</p>
+    <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.75;color:#4a4035;max-width:54ch;margin:0 auto">Ce site raconte cette longue transformation : des premières cultures préhistoriques à l'âge des samouraïs, de l'ouverture forcée du pays à la modernité, jusqu'au Japon contemporain.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:18px;margin-top:46px">
+      <span style="width:64px;height:1px;background:#cbbd9d"></span>
+      <svg width="58" height="18" viewBox="0 0 58 18" fill="none"><path d="M2 13 q6 -11 13 0 q7 11 14 0 q6 -11 13 0 q5 9 13 1" stroke="#1e3a52" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      <span style="width:64px;height:1px;background:#cbbd9d"></span>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;background:linear-gradient(180deg,#13283c,#0f2030);color:#f1e9d8;padding:clamp(56px,8vh,96px) clamp(22px,6vw,80px);overflow:hidden">
+  <span aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(220px,34vw,520px);line-height:.8;color:rgba(201,164,78,.045);user-select:none;pointer-events:none;white-space:nowrap">侍刀道</span>
+  <div data-reveal="" style="position:relative;z-index:1;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:clamp(26px,4vw,52px);opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease">
+    <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+      <div style="text-align:center;position:relative">
+        <span aria-hidden="true" style="position:absolute;top:-28px;left:50%;transform:translateX(-50%);font-family:'Shippori Mincho',serif;font-size:54px;color:rgba(201,164,78,.12);line-height:1;pointer-events:none">{{ s.kanji }}</span>
+        <div style="position:relative;font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(40px,5.4vw,68px);line-height:1;color:#f6efdf"><span data-count="{{ s.value }}" data-suffix="{{ s.suffix }}">0</span></div>
+        <div style="margin-top:10px;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#c9a44e">{{ s.label }}</div>
+        <div style="margin-top:6px;font-size:14px;color:#b3a98f;line-height:1.5">{{ s.sub }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<div class="marquee-band" aria-hidden="true" style="background:#b5402c;color:#f6efdf;padding:14px 0;overflow:hidden;border-top:1px solid rgba(246,239,223,.18);border-bottom:1px solid rgba(246,239,223,.18)">
+  <div class="marquee-track" style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:clamp(16px,1.8vw,22px);letter-spacing:.04em">
+    <span style="padding:0 28px">義 GI · Justice</span><span style="opacity:.5">◆</span><span style="padding:0 28px">勇 YŪ · Courage</span><span style="opacity:.5">◆</span><span style="padding:0 28px">仁 JIN · Bienveillance</span><span style="opacity:.5">◆</span><span style="padding:0 28px">礼 REI · Respect</span><span style="opacity:.5">◆</span><span style="padding:0 28px">誠 MAKOTO · Sincérité</span><span style="opacity:.5">◆</span><span style="padding:0 28px">名誉 MEIYO · Honneur</span><span style="opacity:.5">◆</span><span style="padding:0 28px">忠義 CHŪGI · Loyauté</span><span style="opacity:.5">◆</span>
+    <span style="padding:0 28px">義 GI · Justice</span><span style="opacity:.5">◆</span><span style="padding:0 28px">勇 YŪ · Courage</span><span style="opacity:.5">◆</span><span style="padding:0 28px">仁 JIN · Bienveillance</span><span style="opacity:.5">◆</span><span style="padding:0 28px">礼 REI · Respect</span><span style="opacity:.5">◆</span><span style="padding:0 28px">誠 MAKOTO · Sincérité</span><span style="opacity:.5">◆</span><span style="padding:0 28px">名誉 MEIYO · Honneur</span><span style="opacity:.5">◆</span><span style="padding:0 28px">忠義 CHŪGI · Loyauté</span><span style="opacity:.5">◆</span>
+  </div>
+</div>
+
+<section id="chronologie" style="background:#ece2cb;padding:clamp(70px,10vh,120px) 0 clamp(80px,11vh,140px);scroll-margin-top:72px;position:relative;overflow:hidden">
+  <div data-reveal="" style="max-width:1080px;margin:0 auto;padding:0 clamp(22px,6vw,80px);opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+      <span style="width:42px;height:1px;background:#1e3a52"></span>
+      <span style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:#1e3a52">Chronologie interactive</span>
+    </div>
+    <h2 class="brush-title" style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(32px,4.4vw,56px);line-height:1.08;color:#1b160f;margin-bottom:22px;max-width:16ch">Une traversée de l'archipel, époque par époque</h2>
+    <p style="max-width:56ch;color:#4a4035;font-size:clamp(16px,1.4vw,18px);line-height:1.7;margin-bottom:14px">Déroulez le rouleau d'est en ouest, comme un emaki. <strong>Cliquez une famille</strong> pour filtrer les époques, ou <strong>une carte</strong> pour ouvrir sa fiche détaillée.</p>
+    <div data-tlfilter="" style="display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center">
+      <button class="tl-chip" data-filter="all" aria-pressed="true" style="display:flex;align-items:center;gap:9px;color:#1b160f;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.06em">Toutes</button>
+      <button class="tl-chip" data-filter="mythe" aria-pressed="false" style="display:flex;align-items:center;gap:9px;color:#5b5142;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.06em"><span style="width:11px;height:11px;border-radius:50%;background:#b08741"></span>Mythe fondateur</button>
+      <button class="tl-chip" data-filter="ancien" aria-pressed="false" style="display:flex;align-items:center;gap:9px;color:#5b5142;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.06em"><span style="width:11px;height:11px;border-radius:50%;background:#93673d"></span>Préhistoire &amp; protohistoire</button>
+      <button class="tl-chip" data-filter="classique" aria-pressed="false" style="display:flex;align-items:center;gap:9px;color:#5b5142;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.06em"><span style="width:11px;height:11px;border-radius:50%;background:#3f6b86"></span>Âge classique</button>
+      <button class="tl-chip" data-filter="samourai" aria-pressed="false" style="display:flex;align-items:center;gap:9px;color:#5b5142;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.06em"><span style="width:11px;height:11px;border-radius:50%;background:#b5402c"></span>L'âge des samouraïs</button>
+      <button class="tl-chip" data-filter="moderne" aria-pressed="false" style="display:flex;align-items:center;gap:9px;color:#5b5142;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.06em"><span style="width:11px;height:11px;border-radius:50%;background:#5a6f78"></span>Le Japon moderne</button>
+    </div>
+  </div>
+
+  <div data-timeline="" style="margin-top:46px;display:flex;gap:0;overflow-x:auto;cursor:grab;scroll-snap-type:x proximity;padding:8px clamp(22px,6vw,80px) 4px;-webkit-overflow-scrolling:touch">
+    <sc-for list="{{ periods }}" as="period" hint-placeholder-count="6">
+      <article data-era-card="" data-cat="{{ period.cat }}" tabindex="0" role="button" aria-label="{{ period.name }} — voir la fiche" data-name="{{ period.name }}" data-no="{{ period.n }}" data-kanji="{{ period.kanji }}" data-dates="{{ period.dates }}" data-ambiance="{{ period.ambiance }}" data-eralabel="{{ period.eraLabel }}" data-emblem="{{ period.emblem }}" data-detail="{{ period.detail }}" data-color="{{ period.color }}" data-region="{{ period.region }}" style="flex:none;width:min(420px,82vw);scroll-snap-align:start;position:relative;padding:34px 36px 30px;border-right:1px solid rgba(31,26,20,.12);background:linear-gradient(180deg,rgba(255,251,242,.55),rgba(255,251,242,0));cursor:pointer;transition:background .3s ease" style-hover="background:linear-gradient(180deg,rgba(255,251,242,.85),rgba(255,251,242,.15))">
+        <span aria-hidden="true" style="position:absolute;top:14px;right:18px;font-family:'Shippori Mincho',serif;font-weight:700;font-size:128px;line-height:.8;color:{{ period.faint }};user-select:none;pointer-events:none">{{ period.kanji }}</span>
+        <div style="position:relative;z-index:1">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+            <span style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:15px;color:{{ period.color }}">{{ period.n }}</span>
+            <span style="font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:{{ period.color }};padding:4px 11px;border-radius:999px">{{ period.eraLabel }}</span>
+          </div>
+          <h3 style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.12;color:#1b160f;margin-bottom:8px">{{ period.name }}</h3>
+          <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:{{ period.color }};margin-bottom:18px">{{ period.dates }}</p>
+          <p style="font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#8a7d68;margin-bottom:16px">{{ period.ambiance }}</p>
+          <p style="font-size:16px;line-height:1.66;color:#43392d;margin-bottom:24px;min-height:96px">{{ period.summary }}</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:16px;border-top:1px solid rgba(31,26,20,.12)">
+            <span style="display:flex;align-items:center;gap:10px;font-family:'EB Garamond',serif;font-size:13px;color:#5b5142"><span style="width:8px;height:8px;border-radius:50%;background:#b5402c;flex:none"></span><span><span style="text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:#8a7d68">Emblème</span> · {{ period.emblem }}</span></span>
+            <span style="font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:{{ period.color }};white-space:nowrap">Fiche →</span>
+          </div>
+        </div>
+      </article>
+    </sc-for>
+    <div style="flex:none;width:clamp(40px,8vw,120px)"></div>
+  </div>
+
+  <div style="max-width:1080px;margin:24px auto 0;padding:0 clamp(22px,6vw,80px);display:flex;align-items:center;gap:18px">
+    <div style="flex:1;height:2px;background:rgba(31,26,20,.12);border-radius:2px;overflow:hidden">
+      <div data-tlprogress="" style="height:100%;width:8%;background:#b5402c;border-radius:2px;transition:width .12s linear"></div>
+    </div>
+    <span style="display:flex;align-items:center;gap:8px;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#8a7d68;white-space:nowrap">Faites glisser <span style="animation:hintNudge 1.6s ease-in-out infinite">→</span></span>
+  </div>
+</section>
+
+<div class="slash-sep" data-slashline="" aria-hidden="true"><span class="glint"></span><span class="blade-line"></span><span class="nick"></span><span class="kref">侍</span></div>
+<section id="samourais" style="position:relative;background:linear-gradient(180deg,#13283c 0%,#1b3a54 60%,#16314a 100%);color:#f1e9d8;padding:clamp(90px,14vh,180px) clamp(22px,6vw,90px);scroll-margin-top:72px;overflow:hidden">
+  <sc-if value="{{ showKanji }}" hint-placeholder-val="{{ true }}">
+    <span aria-hidden="true" style="position:absolute;top:-4%;right:-2%;font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(260px,40vw,640px);line-height:.8;color:rgba(246,239,223,0.04);user-select:none;pointer-events:none;z-index:0">侍</span>
+  </sc-if>
+  <div style="position:relative;z-index:1;max-width:1180px;margin:0 auto">
+    <div data-reveal="" style="max-width:720px;opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+        <span style="width:42px;height:1px;background:#c9a44e"></span>
+        <span style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:#dcc079">L'âge des samouraïs</span>
+      </div>
+      <h2 class="brush-title" style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(34px,4.6vw,60px);line-height:1.06;color:#f6efdf;margin-bottom:26px">La voie du guerrier</h2>
+      <p style="font-size:clamp(17px,1.6vw,20px);line-height:1.72;color:#d6cdb8;max-width:54ch">Pendant près de sept siècles, une caste de guerriers a façonné le pouvoir, les arts et la morale du Japon. Derrière l'armure, un code, une discipline et une esthétique — bien plus qu'un simple combattant.</p>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:18px;margin:50px 0">
+      <span style="width:14px;height:14px;border:2px solid #c9a44e;transform:rotate(45deg);flex:none"></span>
+      <span style="flex:1;height:1px;background:linear-gradient(90deg,rgba(201,164,78,.6),rgba(201,164,78,.1))"></span>
+      <span style="font-family:'Shippori Mincho',serif;font-size:14px;letter-spacing:.3em;color:#c9a44e">刀</span>
+      <span style="flex:1;height:1px;background:linear-gradient(90deg,rgba(201,164,78,.1),rgba(201,164,78,.6))"></span>
+      <span style="width:14px;height:14px;border:2px solid #c9a44e;transform:rotate(45deg);flex:none"></span>
+    </div>
+
+    <div data-reveal="" data-dyngrid="" style="display:grid;gap:1px;background:rgba(246,239,223,.14);border:1px solid rgba(246,239,223,.16);border-radius:10px;overflow:hidden;opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease,grid-template-columns .45s cubic-bezier(.2,.7,.2,1),grid-template-rows .45s cubic-bezier(.2,.7,.2,1)">
+      <sc-for list="{{ concepts }}" as="c" hint-placeholder-count="6">
+        <div class="slice-card tilt dyn-card" style="position:relative;overflow:hidden;background:#16314a;padding:34px 32px;display:flex;flex-direction:column;justify-content:center;transition:background .35s ease" style-hover="background:#1b3d5c">
+          <span class="beam" aria-hidden="true"></span>
+          <span class="slash"></span>
+          <span class="dyn-kanji" aria-hidden="true" style="position:absolute;top:-22px;right:-8px;font-family:'Shippori Mincho',serif;font-weight:800;font-size:128px;line-height:1;color:rgba(201,164,78,.08);pointer-events:none;user-select:none">{{ c.kanji }}</span>
+          <div style="position:relative;z-index:1">
+            <span style="font-family:'Shippori Mincho',serif;font-size:26px;color:#c9a44e">{{ c.kanji }}</span>
+            <h3 style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:22px;color:#f6efdf;margin:11px 0 12px">{{ c.name }}</h3>
+            <p style="font-size:15px;line-height:1.62;color:#c2b8a1">{{ c.desc }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div data-reveal="" style="display:flex;gap:clamp(20px,3vw,40px);margin-top:54px;flex-wrap:wrap;align-items:stretch;opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease">
+      <div data-slice="" style="flex:1 1 380px;display:flex;gap:14px;justify-content:flex-start">
+        <div class="estampe-frame" style="position:relative;padding:8px;background:rgba(246,239,223,.05);border:1px solid rgba(201,164,78,.4);border-radius:5px;flex:1;overflow:hidden">
+          <div style="position:relative;width:100%;height:300px;overflow:hidden;border-radius:3px">
+            <image-slot id="estampe-1" src="estampes/estampe2.jpg" style="display:block;width:100%;height:100%" shape="rect" placeholder="Estampe"></image-slot>
+            <canvas data-ink="" style="position:absolute;inset:0;z-index:2;cursor:none"></canvas>
+            <span class="ink-hint" aria-hidden="true" style="position:absolute;left:10px;bottom:9px;z-index:3;pointer-events:none;font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#3a2a16;background:rgba(232,221,199,.82);padding:4px 9px;border-radius:3px;transition:opacity .6s ease">墨 · Effleurez</span>
+          </div>
+        </div>
+        <div class="estampe-frame" style="position:relative;padding:8px;background:rgba(246,239,223,.05);border:1px solid rgba(201,164,78,.4);border-radius:5px;flex:1;margin-top:34px;overflow:hidden">
+          <div style="position:relative;width:100%;height:300px;overflow:hidden;border-radius:3px">
+            <image-slot id="estampe-2" src="estampes/estampe3.jpg" style="display:block;width:100%;height:100%" shape="rect" placeholder="Estampe"></image-slot>
+            <canvas data-ink="" style="position:absolute;inset:0;z-index:2;cursor:none"></canvas>
+            <span class="ink-hint" aria-hidden="true" style="position:absolute;left:10px;bottom:9px;z-index:3;pointer-events:none;font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#3a2a16;background:rgba(232,221,199,.82);padding:4px 9px;border-radius:3px;transition:opacity .6s ease">墨 · Effleurez</span>
+          </div>
+        </div>
+        <div class="estampe-frame" style="position:relative;padding:8px;background:rgba(246,239,223,.05);border:1px solid rgba(201,164,78,.4);border-radius:5px;flex:1;margin-top:16px;overflow:hidden">
+          <div style="position:relative;width:100%;height:300px;overflow:hidden;border-radius:3px">
+            <image-slot id="estampe-3" src="estampes/Estamp4.jpg" style="display:block;width:100%;height:100%" shape="rect" placeholder="Estampe"></image-slot>
+            <canvas data-ink="" style="position:absolute;inset:0;z-index:2;cursor:none"></canvas>
+            <span class="ink-hint" aria-hidden="true" style="position:absolute;left:10px;bottom:9px;z-index:3;pointer-events:none;font-family:'EB Garamond',serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#3a2a16;background:rgba(232,221,199,.82);padding:4px 9px;border-radius:3px;transition:opacity .6s ease">墨 · Effleurez</span>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1 1 320px;background:rgba(181,64,44,.12);border:1px solid rgba(181,64,44,.5);border-radius:10px;padding:36px 34px;display:flex;flex-direction:column;justify-content:center">
+        <span style="font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#e89a86;margin-bottom:14px">Réalité &amp; imaginaire</span>
+        <p style="font-family:'Shippori Mincho',serif;font-weight:500;font-size:clamp(18px,1.8vw,22px);line-height:1.55;color:#f6efdf;margin-bottom:14px">Le samouraï réel — administrateur, lettré, stratège — diffère du héros solitaire des écrans.</p>
+        <p style="font-size:15px;line-height:1.66;color:#d6c2ba">L'histoire est plus nuancée que la légende : entre le bushidō codifié tardivement et la figure popularisée par le cinéma et le manga, il faut savoir distinguer le fait du mythe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slash-sep" data-slashline="" aria-hidden="true"><span class="glint"></span><span class="blade-line"></span><span class="nick"></span><span class="kref">刀</span></div>
+<section id="katana" style="position:relative;background:linear-gradient(180deg,#0f2030 0%,#13283c 50%,#0d1c2a 100%);color:#f1e9d8;padding:clamp(90px,14vh,180px) clamp(22px,6vw,90px);scroll-margin-top:72px;overflow:hidden">
+  <span aria-hidden="true" style="position:absolute;top:-8%;left:-3%;font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(280px,46vw,720px);line-height:.78;color:rgba(201,164,78,.045);user-select:none;pointer-events:none;z-index:0">刀</span>
+  <div style="position:relative;z-index:1;max-width:1180px;margin:0 auto">
+
+    <div data-reveal="" style="max-width:720px;opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+        <span style="width:42px;height:1px;background:#c9a44e"></span>
+        <span style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:#dcc079">刀 · L'âme du samouraï</span>
+      </div>
+      <h2 class="brush-title" style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(34px,4.6vw,60px);line-height:1.06;color:#f6efdf;margin-bottom:26px">Anatomie du<span class="gold-text">katana</span></h2>
+      <p style="font-size:clamp(17px,1.6vw,20px);line-height:1.72;color:#d6cdb8;max-width:56ch">On dit que le katana est l'âme du guerrier. Forgé par pliages successifs, sa lame courbe unit acier dur et acier souple. Survolez la lame ou choisissez une pièce pour révéler ses secrets.</p>
+    </div>
+
+    <div data-reveal="" style="margin-top:54px;background:linear-gradient(160deg,rgba(246,239,223,.05),rgba(246,239,223,.01));border:1px solid rgba(201,164,78,.28);border-radius:16px;padding:clamp(26px,4vw,48px);opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease">
+
+      <div class="k-svg" style="position:relative">
+        <svg data-bigblade="" viewBox="0 0 1000 150" style="display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 18px 26px rgba(0,0,0,.5))">
+          <defs>
+            <linearGradient id="bigBlade" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#8b97a4"></stop>
+              <stop offset=".45" stop-color="#f6f9fc"></stop>
+              <stop offset=".75" stop-color="#cdd6df"></stop>
+              <stop offset="1" stop-color="#aab4be"></stop>
+            </linearGradient>
+            <linearGradient id="tsukaWrap" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3a1d12"></stop>
+              <stop offset="1" stop-color="#1c0d07"></stop>
+            </linearGradient>
+          </defs>
+
+          <!-- blade body -->
+          <path data-ksvg="shinogi" d="M250 70 Q600 50 920 52 L968 64 Q958 76 920 80 Q600 90 250 86 Z" fill="url(#bigBlade)" stroke="rgba(255,255,255,.5)" stroke-width="1"></path>
+          <!-- shinogi ridge -->
+          <path data-ksvg="shinogi" d="M258 73 Q600 56 945 60" fill="none" stroke="#ffffff" stroke-width="1.2" opacity=".55"></path>
+          <!-- hamon temper line -->
+          <path data-ksvg="hamon" d="M262 82 q30 -7 60 0 q30 7 60 0 q30 -7 60 0 q30 7 60 0 q30 -7 60 0 q30 7 60 0 q30 -7 60 0 q30 7 60 0 q30 -7 60 0 q30 7 60 0" fill="none" stroke="#e9d9a8" stroke-width="1.6" opacity=".75"></path>
+          <!-- kissaki tip -->
+          <path data-ksvg="kissaki" d="M905 53 L968 64 Q958 76 920 80 L905 79 Q930 66 905 53 Z" fill="#f6f9fc" stroke="rgba(255,255,255,.7)" stroke-width="1"></path>
+          <!-- habaki collar -->
+          <rect x="242" y="62" width="16" height="30" rx="2" fill="#c9a44e"></rect>
+          <!-- tsuba guard -->
+          <g data-ksvg="tsuba"><ellipse cx="232" cy="77" rx="14" ry="34" fill="#2e2113" stroke="#c9a44e" stroke-width="2"></ellipse><ellipse cx="232" cy="77" rx="5" ry="13" fill="#0f2030"></ellipse></g>
+          <!-- tsuka handle -->
+          <g data-ksvg="tsuka">
+            <rect x="44" y="64" width="180" height="26" rx="7" fill="url(#tsukaWrap)"></rect>
+            <path d="M58 64 L74 90 M82 64 L98 90 M106 64 L122 90 M130 64 L146 90 M154 64 L170 90 M178 64 L194 90 M202 64 L218 90" stroke="#c9a44e" stroke-width="2" opacity=".7"></path>
+            <path d="M74 64 L58 90 M98 64 L82 90 M122 64 L106 90 M146 64 L130 90 M170 64 L154 90 M194 64 L178 90 M218 64 L202 90" stroke="#c9a44e" stroke-width="2" opacity=".7"></path>
+          </g>
+          <!-- kashira pommel -->
+          <g data-ksvg="kashira"><rect x="30" y="60" width="18" height="34" rx="6" fill="#2e2113" stroke="#c9a44e" stroke-width="1.6"></rect></g>
+
+          <!-- hotspots -->
+          <g class="k-hot" data-khot="kashira"><circle class="ring" cx="39" cy="40" r="11" fill="none" stroke="#c9a44e" stroke-width="1.3" opacity=".4"></circle><circle class="core" cx="39" cy="40" r="4.5" fill="#c9a44e"></circle><line x1="39" y1="46" x2="39" y2="60" stroke="#c9a44e" stroke-width="1" opacity=".5"></line></g>
+          <g class="k-hot" data-khot="tsuka"><circle class="ring" cx="134" cy="34" r="11" fill="none" stroke="#c9a44e" stroke-width="1.3" opacity=".4"></circle><circle class="core" cx="134" cy="34" r="4.5" fill="#c9a44e"></circle><line x1="134" y1="40" x2="134" y2="64" stroke="#c9a44e" stroke-width="1" opacity=".5"></line></g>
+          <g class="k-hot" data-khot="tsuba"><circle class="ring" cx="232" cy="30" r="11" fill="none" stroke="#c9a44e" stroke-width="1.3" opacity=".4"></circle><circle class="core" cx="232" cy="30" r="4.5" fill="#c9a44e"></circle><line x1="232" y1="36" x2="232" y2="44" stroke="#c9a44e" stroke-width="1" opacity=".5"></line></g>
+          <g class="k-hot" data-khot="hamon"><circle class="ring" cx="520" cy="112" r="11" fill="none" stroke="#c9a44e" stroke-width="1.3" opacity=".4"></circle><circle class="core" cx="520" cy="112" r="4.5" fill="#c9a44e"></circle><line x1="520" y1="106" x2="520" y2="88" stroke="#c9a44e" stroke-width="1" opacity=".5"></line></g>
+          <g class="k-hot" data-khot="shinogi"><circle class="ring" cx="700" cy="30" r="11" fill="none" stroke="#c9a44e" stroke-width="1.3" opacity=".4"></circle><circle class="core" cx="700" cy="30" r="4.5" fill="#c9a44e"></circle><line x1="700" y1="36" x2="700" y2="58" stroke="#c9a44e" stroke-width="1" opacity=".5"></line></g>
+          <g class="k-hot" data-khot="kissaki"><circle class="ring" cx="945" cy="34" r="11" fill="none" stroke="#c9a44e" stroke-width="1.3" opacity=".4"></circle><circle class="core" cx="945" cy="34" r="4.5" fill="#c9a44e"></circle><line x1="945" y1="40" x2="940" y2="56" stroke="#c9a44e" stroke-width="1" opacity=".5"></line></g>
+        </svg>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:34px">
+        <sc-for list="{{ katanaParts }}" as="p" hint-placeholder-count="6">
+          <button type="button" class="k-chip" data-kchip="{{ p.id }}" data-name="{{ p.name }}" data-kanji="{{ p.kanji }}" data-romaji="{{ p.romaji }}" data-desc="{{ p.desc }}" data-role="{{ p.role }}" style="display:inline-flex;align-items:center;gap:9px;background:rgba(246,239,223,.04);border:1px solid rgba(201,164,78,.4);color:#e7dcc4;border-radius:999px;padding:9px 18px;font-family:'EB Garamond',serif;font-size:14px;letter-spacing:.04em">
+            <span style="font-family:'Shippori Mincho',serif;font-size:16px;color:#c9a44e">{{ p.kanji }}</span>{{ p.name }}
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(22px,3vw,40px);margin-top:34px;align-items:flex-start">
+        <div style="flex:1 1 360px">
+          <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:6px">
+            <span data-kpart-kanji="" style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(40px,5vw,58px);color:#c9a44e;line-height:1">刀</span>
+            <div>
+              <h3 data-kpart-title="" style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(22px,2.4vw,30px);color:#f6efdf;line-height:1.1">La lame</h3>
+              <span data-kpart-romaji="" style="font-family:'EB Garamond',serif;font-style:italic;color:#9fb4c2;font-size:15px">ha</span>
+            </div>
+          </div>
+          <p data-kpart-desc="" style="font-size:clamp(15px,1.5vw,17px);line-height:1.72;color:#d6cdb8;margin-top:16px">Sélectionnez une pièce du sabre pour découvrir son rôle.</p>
+        </div>
+        <div style="flex:1 1 260px;background:rgba(181,64,44,.12);border:1px solid rgba(181,64,44,.45);border-radius:12px;padding:26px 28px">
+          <span style="font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#e89a86">Au combat &amp; au rite</span>
+          <p data-kpart-role="" style="font-family:'Shippori Mincho',serif;font-weight:500;font-size:clamp(17px,1.7vw,20px);line-height:1.55;color:#f6efdf;margin-top:12px">Bien plus qu'une arme : un objet d'art, de pouvoir et d'âme.</p>
+          <button type="button" data-sheath="" class="mag-btn" style="margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:#b5402c;color:#f6efdf;border:none;cursor:pointer;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;padding:12px 24px;border-radius:999px;box-shadow:0 10px 24px rgba(120,30,18,.34)">Dégainer la lame <span style="font-size:16px">⚔</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slash-sep" data-slashline="" aria-hidden="true"><span class="glint"></span><span class="blade-line"></span><span class="nick"></span><span class="kref">美</span></div>
+<section id="culture" style="background:#efe7d6;padding:clamp(90px,13vh,170px) clamp(22px,6vw,80px);scroll-margin-top:72px">
+  <div data-reveal="" style="max-width:1180px;margin:0 auto;opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+      <span style="width:42px;height:1px;background:#b5402c"></span>
+      <span style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:#b5402c">Culture &amp; arts</span>
+    </div>
+    <h2 style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(32px,4.4vw,56px);line-height:1.08;color:#1b160f;margin-bottom:22px;max-width:18ch">L'esprit, le geste et la beauté</h2>
+    <p style="max-width:56ch;color:#4a4035;font-size:clamp(16px,1.4vw,18px);line-height:1.7;margin-bottom:48px">Une sensibilité où le vide compte autant que la forme, et où chaque art devient une voie — un dō — à parcourir toute une vie.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px">
+      <sc-for list="{{ cultures }}" as="item" hint-placeholder-count="9">
+        <article class="slice-card tilt" style="position:relative;background:#f6f0e2;border:1px solid rgba(31,26,20,.1);border-radius:11px;padding:30px 28px;overflow:hidden;transition:box-shadow .35s ease" style-hover="box-shadow:0 18px 40px rgba(30,58,82,.16)">
+          <span class="beam" aria-hidden="true"></span>
+          <span class="slash"></span>
+          <span aria-hidden="true" style="position:absolute;top:-14px;right:8px;font-family:'Shippori Mincho',serif;font-weight:700;font-size:96px;line-height:1;color:rgba(30,58,82,.06);user-select:none;pointer-events:none">{{ item.kanji }}</span>
+          <div style="position:relative;z-index:1">
+            <span style="font-family:'Shippori Mincho',serif;font-size:22px;color:#b5402c">{{ item.kanji }}</span>
+            <h3 style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:22px;color:#1b160f;margin:10px 0 12px">{{ item.name }}</h3>
+            <p style="font-size:15px;line-height:1.64;color:#4a4035">{{ item.desc }}</p>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<div class="slash-sep" data-slashline="" aria-hidden="true"><span class="glint"></span><span class="blade-line"></span><span class="nick"></span><span class="kref">継</span></div>
+<section id="heritage" style="background:#ece2cb;padding:clamp(90px,13vh,170px) clamp(22px,6vw,80px);scroll-margin-top:72px;position:relative;overflow:hidden">
+  <div data-reveal="" style="max-width:1180px;margin:0 auto;opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+      <span style="width:42px;height:1px;background:#b08741"></span>
+      <span style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:#a9803c">Héritages modernes</span>
+    </div>
+    <h2 style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(32px,4.4vw,56px);line-height:1.08;color:#1b160f;margin-bottom:22px;max-width:16ch">L'ancien Japon, toujours vivant</h2>
+    <p style="max-width:56ch;color:#4a4035;font-size:clamp(16px,1.4vw,18px);line-height:1.7;margin-bottom:48px">L'esthétique, la discipline et l'imaginaire des siècles passés irriguent encore la création contemporaine — au Japon comme dans le monde entier.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px">
+      <sc-for list="{{ heritagesGrid }}" as="h" hint-placeholder-count="6">
+        <article class="slice-card tilt" style="display:flex;gap:18px;align-items:flex-start;background:#f3ecdb;border:1px solid rgba(31,26,20,.09);border-radius:10px;padding:28px 26px;overflow:hidden;transition:box-shadow .35s ease" style-hover="box-shadow:0 14px 32px rgba(30,58,82,.14)">
+          <span class="beam" aria-hidden="true"></span>
+          <span class="slash"></span>
+          <span style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:34px;color:#1e3a52;flex:none;line-height:1">{{ h.kanji }}</span>
+          <div>
+            <h3 style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:19px;color:#1b160f;margin-bottom:8px">{{ h.name }}</h3>
+            <p style="font-size:14.5px;line-height:1.6;color:#4a4035">{{ h.desc }}</p>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+
+    <div style="position:relative;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(20px,3vw,44px);margin-top:16px;background:linear-gradient(100deg,#16314a 0%,#1e3a52 100%);border:1px solid rgba(201,164,78,.34);border-radius:12px;padding:clamp(30px,4vw,46px) clamp(28px,4vw,52px)">
+      <span class="beam" aria-hidden="true" style="z-index:3"></span>
+      <span aria-hidden="true" style="position:absolute;top:-34%;right:1%;font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(180px,24vw,330px);line-height:.8;color:rgba(201,164,78,.07);pointer-events:none;user-select:none">{{ heritageFeature.kanji }}</span>
+      <span style="position:relative;z-index:1;font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(54px,7vw,90px);color:#c9a44e;line-height:1;flex:none">{{ heritageFeature.kanji }}</span>
+      <div style="position:relative;z-index:1;flex:1 1 320px">
+        <span style="font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:#dcc079">Au-delà des frontières</span>
+        <h3 style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(24px,2.6vw,32px);color:#f6efdf;margin:11px 0 11px">{{ heritageFeature.name }}</h3>
+        <p style="font-size:clamp(15px,1.4vw,17px);line-height:1.66;color:#cabfa8;max-width:62ch">{{ heritageFeature.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="slash-sep" data-slashline="" aria-hidden="true"><span class="glint"></span><span class="blade-line"></span><span class="nick"></span><span class="kref">道</span></div>
+<section id="musashi" style="background:#0c1622;padding:clamp(80px,12vh,160px) clamp(22px,6vw,80px);scroll-margin-top:72px;position:relative;overflow:hidden">
+  <div data-reveal="" style="max-width:1180px;margin:0 auto;opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+      <span style="width:42px;height:1px;background:#c9a44e"></span>
+      <span style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:#dcc079">独行道 · La voie en solitaire</span>
+    </div>
+    <h2 style="font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(32px,4.4vw,56px);line-height:1.08;color:#f6efdf;margin-bottom:30px;max-width:16ch">L'esprit de <span class="gold-text">Musashi</span></h2>
+
+    <div class="mus-card" data-mus="" style="position:relative;overflow:hidden;border-radius:18px;min-height:clamp(420px,60vh,560px);background:#07090d;border:1px solid rgba(201,164,78,.3);box-shadow:0 40px 90px rgba(0,0,0,.55)">
+      <span class="beam" aria-hidden="true"></span>
+      <img src="estampes/estame3D.jpg" alt="Samouraï sous la pleine lune" loading="lazy" decoding="async" style="position:absolute;inset:-8%;width:116%;height:116%;object-fit:cover;object-position:72% 40%;animation:kenburns 26s ease-in-out infinite">
+      <span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,9,13,.92) 0%,rgba(7,9,13,.66) 32%,rgba(7,9,13,.12) 58%,transparent 100%)"></span>
+      <span aria-hidden="true" style="position:absolute;inset:0;box-shadow:inset 0 0 110px rgba(5,9,14,.7);pointer-events:none"></span>
+
+      <span aria-hidden="true" style="position:absolute;right:clamp(20px,4vw,60px);top:50%;transform:translateY(-50%);writing-mode:vertical-rl;font-family:'Shippori Mincho',serif;font-weight:700;font-size:clamp(26px,3.4vw,46px);letter-spacing:.18em;color:rgba(246,239,223,.14);user-select:none;pointer-events:none;z-index:1">我事に於て後悔をせず</span>
+
+      <div style="position:relative;z-index:2;height:100%;min-height:inherit;display:flex;align-items:center;padding:clamp(30px,5vw,68px);pointer-events:none">
+        <div style="max-width:40ch">
+          <span aria-hidden="true" style="font-family:'Shippori Mincho',serif;font-size:clamp(40px,5vw,64px);color:#c9a44e;line-height:1;display:block;margin-bottom:18px">「</span>
+          <button type="button" class="mus-quote" data-musq="" aria-label="Maxime de Miyamoto Musashi — cliquez pour en afficher une autre">
+            <span class="mus-text" data-mustext="">De mes actes, je n'éprouve aucun regret.</span>
+            <span class="mus-sub" data-mussub="">Accepte chaque chose telle qu'elle est, et suis la Voie jusqu'au bout.</span>
+          </button>
+          <span class="mus-hint" data-mushint="" aria-hidden="true">↻ Cliquez pour une autre maxime</span>
+          <div style="display:flex;align-items:center;gap:16px">
+            <span aria-hidden="true" style="display:grid;place-items:center;width:48px;height:48px;background:#b5402c;color:#f6efdf;border-radius:6px;font-family:'Shippori Mincho',serif;font-weight:700;font-size:15px;line-height:1.05;text-align:center;transform:rotate(-4deg);box-shadow:0 6px 16px rgba(120,30,18,.45)">武蔵</span>
+            <div>
+              <p style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:16px;color:#f6efdf">Miyamoto Musashi</p>
+              <p data-mussource="" style="font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.12em;color:#8fa0ab;transition:opacity .35s ease">宮本武蔵 · Dokkōdō, 1645</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:18px;font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:#5f7686">Sous la pleine lune, le rōnin veille.</p>
+  </div>
+</section>
+
+<div class="slash-sep" data-slashline="" aria-hidden="true"><span class="glint"></span><span class="blade-line"></span><span class="nick"></span><span class="kref">和</span></div>
+<footer style="background:#10202e;color:#c8baa1;padding:clamp(70px,10vh,120px) clamp(22px,6vw,80px) 48px;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;top:0;left:0;right:0;height:42px;opacity:.5;background-color:#10202e;background-image:radial-gradient(circle at 50% 100%, #c9a44e 8%, transparent 9%),radial-gradient(circle at 0 100%, #c9a44e 8%, transparent 9%),radial-gradient(circle at 100% 100%, #c9a44e 8%, transparent 9%);background-size:40px 40px;background-position:0 0"></div>
+  <div style="max-width:1080px;margin:0 auto;text-align:center;position:relative;z-index:1">
+    <div style="display:inline-flex;flex-direction:column;align-items:center;gap:16px;margin-bottom:30px">
+      <span style="display:grid;place-items:center;width:52px;height:52px;background:#b5402c;color:#f6efdf;border-radius:9px;font-family:'Shippori Mincho',serif;font-weight:700;font-size:28px;transform:rotate(-4deg);box-shadow:0 6px 18px rgba(120,30,18,.4)">和</span>
+      <span style="font-family:'Shippori Mincho',serif;font-weight:600;font-size:24px;color:#f6efdf;letter-spacing:.03em">Chroniques du Japon</span>
+    </div>
+    <p style="font-family:'Shippori Mincho',serif;font-style:italic;font-size:clamp(17px,1.7vw,21px);line-height:1.6;color:#d6c8af;max-width:48ch;margin:0 auto 40px">Un carnet numérique consacré à l'histoire, à l'esthétique et à l'esprit du Japon.</p>
+    <nav style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px 30px;font-family:'EB Garamond',serif;font-size:14px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:46px">
+      <a href="#chronologie" style="color:#c8baa1;text-decoration:none" style-hover="color:#f6efdf">Chronologie</a>
+      <a href="#samourais" style="color:#c8baa1;text-decoration:none" style-hover="color:#f6efdf">Samouraïs</a>
+      <a href="#katana" style="color:#c8baa1;text-decoration:none" style-hover="color:#f6efdf">Katana</a>
+      <a href="#culture" style="color:#c8baa1;text-decoration:none" style-hover="color:#f6efdf">Culture</a>
+      <a href="#heritage" style="color:#c8baa1;text-decoration:none" style-hover="color:#f6efdf">Héritage</a>
+      <a href="ressources.html" style="color:#c8baa1;text-decoration:none" style-hover="color:#f6efdf">Ressources</a>
+    </nav>
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:26px">
+      <span style="width:60px;height:1px;background:rgba(201,164,78,.4)"></span>
+      <svg width="44" height="14" viewBox="0 0 44 14" fill="none"><path d="M2 10 q5 -8 10 0 q5 8 10 0 q5 -8 10 0" stroke="#c9a44e" stroke-width="1.4" stroke-linecap="round"></path></svg>
+      <span style="width:60px;height:1px;background:rgba(201,164,78,.4)"></span>
+    </div>
+    <p style="font-size:13px;line-height:1.6;color:#8a7e69;max-width:50ch;margin:0 auto">Les kanji présents sur ce site sont des éléments décoratifs ; tout le contenu est rédigé en français. Carnet personnel, à visée culturelle.</p>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;petals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;kanjiWatermarks&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const C = { mythe:'#b08741', ancien:'#93673d', classique:'#3f6b86', samourai:'#b5402c', moderne:'#5a6f78' };
+    const F = { mythe:'rgba(176,135,65,.10)', ancien:'rgba(147,103,61,.10)', classique:'rgba(63,107,134,.10)', samourai:'rgba(181,64,44,.09)', moderne:'rgba(90,111,120,.10)' };
+    const L = { mythe:'Mythe fondateur', ancien:'Préhistoire', classique:'Âge classique', samourai:'Samouraïs', moderne:'Japon moderne' };
+    const raw = [
+      ['神話','mythe','Origines mythologiques','Avant l\u2019histoire écrite','Brume · sanctuaire shintō · soleil levant','Izanagi et Izanami façonnent les îles ; d\u2019Amaterasu, déesse du soleil, descend la lignée impériale jusqu\u2019à l\u2019empereur Jimmu. Un récit fondateur, à distinguer de l\u2019histoire documentée.','Amaterasu, déesse du soleil'],
+      ['縄文','ancien','Période Jōmon','env. 14 000 – 300 av. J.-C.','Forêt · feu · motifs de corde','Premières communautés de chasseurs-pêcheurs et l\u2019une des plus anciennes céramiques du monde, marquée à la corde. Un rapport profond et durable à la nature.','Poterie cordée'],
+      ['弥生','ancien','Période Yayoi','env. 300 av. J.-C. – 250','Rizières · bronze · villages','La riziculture irriguée transforme l\u2019archipel : villages agricoles, métallurgie du bronze et du fer, premières hiérarchies sociales.','Cloche dōtaku en bronze'],
+      ['古墳','ancien','Période Kofun','env. 250 – 538','Tumulus · cavaliers · armures','De grands tumulus en trou de serrure signalent une élite puissante. Le pouvoir Yamato s\u2019affirme : premiers signes d\u2019unification politique.','Tombeaux impériaux'],
+      ['飛鳥','classique','Période Asuka','538 – 710','Temples · statues · calligraphie','Le bouddhisme arrive de Chine et de Corée. L\u2019État se structure, l\u2019écriture et l\u2019art s\u2019épanouissent autour de la cour.','Premiers temples bouddhiques'],
+      ['奈良','classique','Période Nara','710 – 794','Lanternes · Bouddha monumental','Première capitale permanente à Nara. Administration impériale centralisée et grands temples ; un Bouddha de bronze colossal veille sur la ville.','Le Grand Bouddha de Nara'],
+      ['平安','classique','Période Heian','794 – 1185','Palais · éventails · lune','Âge raffiné de la cour : poésie, littérature, esthétique aristocratique. Dans l\u2019ombre des palais, la classe guerrière s\u2019éveille peu à peu.','Le Dit du Genji'],
+      ['鎌倉','samourai','Période Kamakura','1185 – 1333','Armure · arc · mer agitée · zen','Premier gouvernement militaire, le shogunat. Les samouraïs deviennent une force politique majeure ; le zen gagne le cœur des guerriers.','Le premier shogunat'],
+      ['室町','samourai','Période Muromachi','1336 – 1573','Jardin sec · pavillon · sabre posé','Shogunat Ashikaga : essor du zen, du théâtre nō et de la voie du thé — mais aussi montée des guerres civiles.','Théâtre nō'],
+      ['戦国','samourai','Période Sengoku','env. 1467 – 1600','Bannières · armures · ciel rouge','L\u2019âge des provinces en guerre. Daimyō rivaux, batailles incessantes, stratèges et grands chefs militaires se disputent le pays.','Les daimyō en guerre'],
+      ['安土','samourai','Azuchi-Momoyama','1568 – 1600','Château · or · armures décorées','Nobunaga puis Hideyoshi unifient le Japon, avant l\u2019ascension de Tokugawa Ieyasu. Châteaux monumentaux et faste doré.','L\u2019unification du Japon'],
+      ['江戸','samourai','Période Edo','1603 – 1868','Estampes · lanternes · samouraï solitaire','Paix des Tokugawa et pays refermé. Les villes prospèrent : marchands, kabuki, ukiyo-e — une riche culture populaire.','Les estampes ukiyo-e'],
+      ['明治','moderne','Restauration Meiji','1868 – 1912','Sabre abandonné · chemin de fer','Fin officielle de l\u2019ordre samouraï. Modernisation fulgurante, industrialisation et ouverture à l\u2019Occident.','La fin des samouraïs'],
+      ['大正','moderne','Ère Taishō','1912 – 1926','Tokyo ancien · affiches rétro','Brève parenthèse de modernité urbaine et de démocratie. Occidentalisation des mœurs et effervescence culturelle.','La démocratie Taishō'],
+      ['昭和','moderne','Ère Shōwa','1926 – 1989','Ruines puis ville reconstruite','Expansion impériale et guerre, puis reconstruction et miracle économique. Le Japon se relève et devient une puissance mondiale.','Le miracle économique'],
+      ['平成','moderne','Ère Heisei','1989 – 2019','Tokyo nocturne · néons subtils','Japon technologique et mondialisé. Jeux vidéo, anime et design rayonnent, tandis que l\u2019économie sort de la bulle.','Le soft power culturel'],
+      ['令和','moderne','Ère Reiwa','2019 – aujourd\u2019hui','Skyline · sanctuaire · sakura','Le Japon contemporain entre tradition et innovation : vieillissement démographique, sobriété et rayonnement mondial.','Tradition & innovation'],
+    ];
+    // détail (fiche) + région (pour la mini-carte), même ordre que raw
+    const extra = [
+      { d:'Les mythes du Kojiki et du Nihon shoki racontent la naissance des îles par Izanagi et Izanami, puis la descente de la lignée impériale depuis Amaterasu. Un récit fondateur — religieux et politique — qu’il faut lire comme une mythologie, distincte de l’histoire documentée.', reg:'archipel' },
+      { d:'Sur près de dix millénaires, les communautés Jōmon vivent de chasse, de pêche et de cueillette. Leur céramique marquée à la corde compte parmi les plus anciennes du monde et témoigne d’un rapport durable et raffiné à la nature.', reg:'archipel' },
+      { d:'Venue du continent, la riziculture irriguée bouleverse l’archipel : sédentarisation, métallurgie du bronze et du fer, premières hiérarchies et échanges. La société se complexifie et se hiérarchise.', reg:'kyushu' },
+      { d:'D’immenses tumulus en trou de serrure (kofun) signalent l’émergence d’une élite guerrière. Le pouvoir Yamato s’affirme dans le Kansai et amorce l’unification politique du pays.', reg:'kansai' },
+      { d:'Le bouddhisme arrive de Chine et de Corée et transforme l’art, l’architecture et l’État. Autour de la cour, l’écriture, le droit et la statuaire bouddhique s’épanouissent — le prince Shōtoku en est la figure.', reg:'kansai' },
+      { d:'Première capitale permanente, Nara calque son plan sur la Chine des Tang. L’administration impériale se centralise et de grands temples s’élèvent, couronnés par le Bouddha de bronze colossal du Tōdai-ji.', reg:'kansai' },
+      { d:'À Heian (Kyoto), la cour porte la culture aristocratique à son sommet : poésie, calligraphie, esthétique du raffinement. Le Dit du Genji y naît. Dans l’ombre, les clans guerriers montent en puissance.', reg:'kansai' },
+      { d:'Minamoto no Yoritomo fonde le premier shogunat à Kamakura : le pouvoir réel passe aux guerriers. Le zen séduit la caste militaire, et l’archipel repousse par deux fois les invasions mongoles.', reg:'kanto' },
+      { d:'Le shogunat Ashikaga, installé à Kyoto, voit fleurir le théâtre nō, la voie du thé et les jardins secs — un âge esthétique majeur — avant de sombrer dans les guerres civiles.', reg:'kansai' },
+      { d:'L’ère des provinces en guerre : daimyō rivaux, batailles incessantes et grands stratèges. Le pays se fragmente, mais c’est aussi le creuset de l’unification à venir.', reg:'central' },
+      { d:'Nobunaga puis Hideyoshi unifient le Japon par le fer et l’audace, avant l’ascension de Tokugawa Ieyasu. Châteaux monumentaux, paravents dorés et faste guerrier marquent l’époque.', reg:'central' },
+      { d:'Sous la paix des Tokugawa, le pays se referme (sakoku). Les villes prospèrent : marchands, kabuki, estampes ukiyo-e — une culture populaire éclatante naît à Edo, future Tokyo.', reg:'kanto' },
+      { d:'La Restauration Meiji abolit l’ordre samouraï et lance une modernisation fulgurante : industrialisation, armée moderne, ouverture à l’Occident. Le sabre cède la place au chemin de fer.', reg:'kanto' },
+      { d:'Brève parenthèse de démocratie et de modernité urbaine. Occidentalisation des mœurs, presse, cinéma et effervescence culturelle dans un Tokyo en pleine mutation.', reg:'kanto' },
+      { d:'Expansion impériale et guerre, puis défaite, reconstruction et « miracle économique ». En quelques décennies, le Japon se relève et devient une grande puissance industrielle.', reg:'kanto' },
+      { d:'Japon technologique et mondialisé : jeux vidéo, anime et design rayonnent sur la planète, tandis que l’économie sort de la bulle spéculative.', reg:'kanto' },
+      { d:'Le Japon contemporain conjugue tradition et innovation, face au vieillissement démographique et aux défis écologiques, tout en gardant un rayonnement culturel mondial.', reg:'archipel' },
+    ];
+    const periods = raw.map((r, i) => ({
+      n: String(i + 1).padStart(2, '0'),
+      kanji: r[0], cat: r[1], color: C[r[1]], faint: F[r[1]], eraLabel: L[r[1]],
+      name: r[2], dates: r[3], ambiance: r[4], summary: r[5], emblem: r[6],
+      detail: (extra[i] && extra[i].d) || r[5], region: (extra[i] && extra[i].reg) || 'archipel',
+    }));
+
+    const concepts = [
+      { name:'Bushidō', kanji:'武士道', desc:'Le code d\u2019honneur du guerrier : loyauté, courage, rectitude et maîtrise de soi.' },
+      { name:'Le samouraï', kanji:'侍', desc:'« Celui qui sert » : un guerrier au service d\u2019un seigneur, lié par le devoir.' },
+      { name:'Le shōgun', kanji:'将軍', desc:'Le chef militaire suprême, détenteur du pouvoir réel face à l\u2019empereur.' },
+      { name:'Les daimyō', kanji:'大名', desc:'Les grands seigneurs féodaux, maîtres de leurs domaines et de leurs vassaux.' },
+      { name:'Les rōnin', kanji:'浪人', desc:'Les samouraïs sans maître, errant en marge de l\u2019ordre établi.' },
+      { name:'Le katana', kanji:'刀', desc:'Le sabre, « âme du samouraï » : à la fois arme et symbole spirituel.' },
+    ];
+
+    const cultures = [
+      { name:'Shintō', kanji:'神道', desc:'La voie des kami : sanctuaires, rites et révérence pour les forces de la nature.' },
+      { name:'Bouddhisme zen', kanji:'禅', desc:'Méditation, vacuité et simplicité ; une discipline patiente de l\u2019esprit.' },
+      { name:'Cérémonie du thé', kanji:'茶道', desc:'L\u2019art du thé : hospitalité, geste juste et instant unique — ichigo ichie.' },
+      { name:'Calligraphie', kanji:'書道', desc:'La voie de l\u2019écriture : le souffle du pinceau, l\u2019encre et le vide.' },
+      { name:'Nō & kabuki', kanji:'歌舞伎', desc:'La lenteur masquée du nō, le faste et la fougue du kabuki.' },
+      { name:'Ukiyo-e', kanji:'浮世絵', desc:'« Images du monde flottant » : les estampes gravées sur bois.' },
+      { name:'Jardins japonais', kanji:'庭園', desc:'Pierres, mousse et eau : des paysages composés pour méditer.' },
+      { name:'Poésie haiku', kanji:'俳句', desc:'Dix-sept syllabes pour saisir une saison, un instant, un souffle.' },
+      { name:'Architecture', kanji:'建築', desc:'Bois, papier et tuiles : temples, sanctuaires et châteaux.' },
+    ];
+
+    const heritages = [
+      { name:'Cinéma', kanji:'映画', desc:'De Kurosawa au western et à la science-fiction mondiale.' },
+      { name:'Jeux vidéo', kanji:'遊', desc:'Mondes, mythes et esthétiques venus de l\u2019archipel.' },
+      { name:'Manga & anime', kanji:'漫画', desc:'Un langage graphique exporté sur toute la planète.' },
+      { name:'Arts martiaux', kanji:'武道', desc:'Judo, kendo, aïkido : la voie, au-delà du seul combat.' },
+      { name:'Design', kanji:'美', desc:'Sobriété, matière et juste nécessaire — wabi-sabi, ma.' },
+      { name:'Artisanat', kanji:'匠', desc:'Monozukuri, kaizen : l\u2019exigence du geste bien fait.' },
+      { name:'Fascination samouraï', kanji:'侍', desc:'Une figure devenue mythe universel du courage et de l\u2019honneur.' },
+    ];
+
+    const heritageFeature = {
+      name: 'Fascination samouraï',
+      kanji: '侍',
+      desc: 'Du cinéma aux jeux vidéo, du sport à la mode, le guerrier japonais est devenu un mythe universel — figure du courage, de l\u2019honneur et de la maîtrise de soi qui inspire le monde entier.',
+    };
+
+    const stats = [
+      { value: 7,    suffix: '',   kanji: '世', label: 'Siècles de pouvoir', sub: 'des guerriers, de Kamakura à Meiji' },
+      { value: 17,   suffix: '',   kanji: '代', label: 'Époques traversées', sub: 'des kami au Japon contemporain' },
+      { value: 1000, suffix: '+',  kanji: '刀', label: 'Ans de forge', sub: 'l’art du sabre transmis de maître en maître' },
+      { value: 7,    suffix: '',   kanji: '徳', label: 'Vertus du bushidō', sub: 'le code moral de la voie du guerrier' },
+    ];
+
+    const katanaParts = [
+      { id:'kashira', name:'Kashira', kanji:'頭',     romaji:'kashira', desc:'Le pommeau qui coiffe l’extrémité de la poignée. Souvent ouvragé en métal, il scelle le tressage et protège le bois de la prise.', role:'Finition et équilibre de la prise en main.' },
+      { id:'tsuka',   name:'Tsuka',   kanji:'柄',     romaji:'tsuka',   desc:'La poignée, recouverte de peau de raie (samegawa) puis tressée de soie (tsuka-ito) en losanges, pour une prise sûre même au combat.', role:'Tenue ferme à deux mains, transmission de la force.' },
+      { id:'tsuba',   name:'Tsuba',   kanji:'鍔',     romaji:'tsuba',   desc:'La garde, entre poignée et lame. Véritable bijou de fer, elle protège la main et exprime le goût de son porteur.', role:'Protège la main et signe l’identité du guerrier.' },
+      { id:'hamon',   name:'Hamon',   kanji:'刃文', romaji:'hamon', desc:'La ligne de trempe ondulée, née du refroidissement différentiel de l’acier. Chaque forgeron y laisse sa signature.', role:'Tranchant dur, dos souple : la vie de la lame.' },
+      { id:'shinogi', name:'Shinogi', kanji:'鎬',     romaji:'shinogi', desc:'L’arête longitudinale qui court le long de la lame, séparant le plat du biseau tranchant et donnant sa rigidité au sabre.', role:'Structure, légèreté et solidité de la lame.' },
+      { id:'kissaki', name:'Kissaki', kanji:'切先', romaji:'kissaki', desc:'La pointe, partie la plus délicate à forger et à polir. Sa courbe et sa netteté révèlent la maîtrise de l’artisan.', role:'L’estoc et la précision du coup décisif.' },
+    ];
+
+    return {
+      periods, concepts, cultures, heritages,
+      heritagesGrid: heritages.slice(0, 6),
+      heritageFeature,
+      stats, katanaParts,
+      showPetals: this.props.petals ?? true,
+      showKanji: this.props.kanjiWatermarks ?? true,
+    };
+  }
+
+  componentDidMount() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+    this._io = io;
+
+    // ---- transitions "coup de sabre" + révélation en biais ----
+    const cutIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add(e.target.hasAttribute('data-slice') ? 'sliced' : 'cut');
+          cutIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+    document.querySelectorAll('[data-slashline],[data-slice]').forEach((el) => cutIO.observe(el));
+    this._cutIO = cutIO;
+
+    const blade = document.querySelector('[data-scrollblade]');
+
+    const nav = document.querySelector('[data-nav]');
+    const hero = document.querySelector('[data-hero]');
+    const moon = document.querySelector('[data-moon]');
+    const fuji = document.querySelector('[data-fuji]');
+    const heroKanji = document.querySelector('[data-hero-kanji]');
+    const clouds = Array.from(document.querySelectorAll('[data-cloud]'));
+    let hmx = 0, hmy = 0;   // décalage souris (diorama)
+    const onScroll = () => {
+      const y = window.scrollY || 0;
+      const h = hero ? hero.offsetHeight : 700;
+      if (nav) {
+        if (y > h * 0.66) {
+          nav.style.background = 'rgba(232,221,199,0.94)';
+          nav.style.color = '#1f1a14';
+          nav.style.borderBottomColor = 'rgba(31,26,20,0.12)';
+        } else {
+          nav.style.background = 'rgba(15,36,54,0)';
+          nav.style.color = '#f6efdf';
+          nav.style.borderBottomColor = 'rgba(246,239,223,0)';
+        }
+      }
+      if (moon) moon.style.transform = 'translate(' + (hmx * -20) + 'px,' + ((y * 0.26) + hmy * -14) + 'px)';
+      if (fuji) fuji.style.transform = 'translate(' + (hmx * -9) + 'px,' + ((y * 0.09) + hmy * -5) + 'px)';
+      if (blade) {
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        blade.style.width = (docH > 0 ? Math.min(100, (y / docH) * 100) : 0) + '%';
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // parallaxe « diorama » au mouvement de la souris dans le hero
+    if (hero && window.matchMedia('(pointer:fine)').matches) {
+      hero.addEventListener('pointermove', (e) => {
+        const r = hero.getBoundingClientRect();
+        hmx = (e.clientX - r.left) / r.width - 0.5;
+        hmy = (e.clientY - r.top) / r.height - 0.5;
+        onScroll();
+        if (heroKanji) heroKanji.style.transform = 'translate(' + (hmx * 34) + 'px,' + (hmy * 24) + 'px)';
+        clouds.forEach((c, i) => { c.style.transform = 'translateX(' + (hmx * (26 + i * 18)) + 'px)'; });
+      });
+      hero.addEventListener('pointerleave', () => {
+        hmx = 0; hmy = 0; onScroll();
+        if (heroKanji) heroKanji.style.transform = '';
+        clouds.forEach((c) => { c.style.transform = ''; });
+      });
+    }
+    onScroll();
+    this._onScroll = onScroll;
+
+    const tl = document.querySelector('[data-timeline]');
+    const prog = document.querySelector('[data-tlprogress]');
+    if (tl) {
+      tl.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+          tl.scrollLeft += e.deltaY;
+          e.preventDefault();
+        }
+      }, { passive: false });
+      let down = false, sx = 0, sl = 0, moved = false;
+      tl.addEventListener('pointerdown', (e) => {
+        down = true; moved = false; sx = e.clientX; sl = tl.scrollLeft;
+        tl.style.cursor = 'grabbing';
+      });
+      tl.addEventListener('pointermove', (e) => {
+        if (!down) return;
+        const dx = e.clientX - sx;
+        if (Math.abs(dx) > 4) moved = true;
+        tl.scrollLeft = sl - dx;
+      });
+      const up = () => { down = false; tl.style.cursor = 'grab'; };
+      tl.addEventListener('pointerup', up);
+      tl.addEventListener('pointercancel', up);
+      tl.addEventListener('pointerleave', up);
+      const updateProg = () => {
+        if (!prog) return;
+        const max = tl.scrollWidth - tl.clientWidth;
+        prog.style.width = (max > 0 ? (tl.scrollLeft / max * 100) : 0) + '%';
+      };
+      tl.addEventListener('scroll', updateProg, { passive: true });
+      updateProg();
+    }
+
+    // ---- compteurs animés ----
+    const runCount = (el) => {
+      const target = parseFloat(el.getAttribute('data-count')) || 0;
+      const suffix = el.getAttribute('data-suffix') || '';
+      const dur = 1500, start = performance.now();
+      const tick = (t) => {
+        const p = Math.min(1, (t - start) / dur);
+        const e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * e).toLocaleString('fr-FR') + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const countIO = new IntersectionObserver((ents) => {
+      ents.forEach((e) => { if (e.isIntersecting) { runCount(e.target); countIO.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach((el) => countIO.observe(el));
+    this._countIO = countIO;
+
+    // ---- tilt 3D au survol ----
+    const fine = window.matchMedia('(pointer:fine)').matches;
+    if (fine) {
+      document.querySelectorAll('.tilt').forEach((card) => {
+        card.addEventListener('pointermove', (ev) => {
+          const r = card.getBoundingClientRect();
+          const px = (ev.clientX - r.left) / r.width - 0.5;
+          const py = (ev.clientY - r.top) / r.height - 0.5;
+          card.style.transform = 'perspective(820px) rotateX(' + (-py * 6).toFixed(2) + 'deg) rotateY(' + (px * 8).toFixed(2) + 'deg) translateY(-4px)';
+        });
+        card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+      });
+
+      // ---- boutons magnétiques ----
+      document.querySelectorAll('.mag-btn').forEach((b) => {
+        b.addEventListener('pointermove', (ev) => {
+          const r = b.getBoundingClientRect();
+          b.style.transform = 'translate(' + ((ev.clientX - r.left - r.width / 2) * 0.25).toFixed(1) + 'px,' + ((ev.clientY - r.top - r.height / 2) * 0.35).toFixed(1) + 'px)';
+        });
+        b.addEventListener('pointerleave', () => { b.style.transform = ''; });
+      });
+    }
+
+    // ---- anatomie interactive du katana ----
+    const kTitle  = document.querySelector('[data-kpart-title]');
+    const kKanji  = document.querySelector('[data-kpart-kanji]');
+    const kRomaji = document.querySelector('[data-kpart-romaji]');
+    const kDesc   = document.querySelector('[data-kpart-desc]');
+    const kRole   = document.querySelector('[data-kpart-role]');
+    const chips   = Array.from(document.querySelectorAll('[data-kchip]'));
+    const hots    = Array.from(document.querySelectorAll('[data-khot]'));
+    const ksvgs   = Array.from(document.querySelectorAll('[data-ksvg]'));
+    if (chips.length) {
+      const selectPart = (id) => {
+        const chip = chips.find((c) => c.getAttribute('data-kchip') === id);
+        if (!chip) return;
+        chips.forEach((c) => c.classList.toggle('active', c === chip));
+        hots.forEach((h) => h.classList.toggle('active', h.getAttribute('data-khot') === id));
+        ksvgs.forEach((s) => s.classList.toggle('dim', s.getAttribute('data-ksvg') !== id));
+        if (kTitle)  kTitle.textContent  = chip.getAttribute('data-name');
+        if (kKanji)  kKanji.textContent  = chip.getAttribute('data-kanji');
+        if (kRomaji) kRomaji.textContent = chip.getAttribute('data-romaji');
+        if (kDesc)   kDesc.textContent   = chip.getAttribute('data-desc');
+        if (kRole)   kRole.textContent   = chip.getAttribute('data-role');
+      };
+      chips.forEach((c) => c.addEventListener('click', () => selectPart(c.getAttribute('data-kchip'))));
+      hots.forEach((h) => {
+        const id = h.getAttribute('data-khot');
+        h.addEventListener('click', () => selectPart(id));
+        h.addEventListener('mouseenter', () => selectPart(id));
+      });
+      selectPart(chips[0].getAttribute('data-kchip'));
+    }
+
+    // ---- dégainer la lame (rejoue l'animation) ----
+    const sheathBtn = document.querySelector('[data-sheath]');
+    const bigBlade  = document.querySelector('[data-bigblade]');
+    if (sheathBtn && bigBlade) {
+      sheathBtn.addEventListener('click', () => {
+        bigBlade.style.animation = 'none';
+        void bigBlade.offsetWidth;
+        bigBlade.style.animation = 'unsheathe 1.4s cubic-bezier(.2,.7,.2,1) both';
+        if (this._sfx) this._sfx.shing();
+      });
+    }
+
+    // ---- Ink Reveal (port natif du composant React InkReveal) ----
+    // L'encre washi couvre l'estampe ; on la dévoile au pinceau, puis elle se referme.
+    const inkCleanups = [];
+    const inkResizers = [];
+    const finePointer = window.matchMedia('(pointer:fine)').matches;
+    const parseRGB = (s, def) => {
+      if (!s) return def;
+      const p = s.split(',').map(Number);
+      return (p.length === 3 && p.every((n) => !isNaN(n))) ? p : def;
+    };
+    document.querySelectorAll('[data-ink]').forEach((canvas) => {
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      const hint = parent.querySelector('.ink-hint');
+      if (!finePointer) {                 // tactile : pas de survol -> on retire l'encre
+        canvas.style.display = 'none';
+        if (hint) hint.style.display = 'none';
+        return;
+      }
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      const alphaAttr = parseFloat(canvas.getAttribute('data-ink-alpha'));
+      const o = {
+        maskColor: parseRGB(canvas.getAttribute('data-ink-mask'), [232,221,199]),
+        maskAlpha: isNaN(alphaAttr) ? 1 : Math.min(1, Math.max(0, alphaAttr)),
+        brushSize: parseFloat(canvas.getAttribute('data-ink-brush')) || 96,
+        lifetime: parseFloat(canvas.getAttribute('data-ink-life')) || 650,
+        rStart:8, rVary:0.45, stampStep:9, maxStamps:200, segments:36, wobble:[0.14,0.08,0.05], gradientInnerRadius:0.2, gradientStops:[0.95,0.88,0]
+      };
+      const mc = o.maskColor;
+      let stamps = [], running = false, lastPos = null, dims = { w:0, h:0 };
+
+      const resize = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const rect = parent.getBoundingClientRect();
+        const w = rect.width, h = rect.height;
+        dims = { w, h };
+        canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+        canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = 'rgba(' + mc[0] + ',' + mc[1] + ',' + mc[2] + ',' + o.maskAlpha + ')';
+        ctx.fillRect(0, 0, w, h);
+      };
+      const carve = (x, y, r, seed, alpha) => {
+        const g = ctx.createRadialGradient(x, y, r * o.gradientInnerRadius, x, y, r);
+        g.addColorStop(0, 'rgba(0,0,0,' + (o.gradientStops[0] * alpha) + ')');
+        g.addColorStop(0.5, 'rgba(0,0,0,' + (o.gradientStops[1] * alpha) + ')');
+        g.addColorStop(1, 'rgba(0,0,0,' + (o.gradientStops[2] * alpha) + ')');
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        for (let i = 0; i <= o.segments; i++) {
+          const a = (i / o.segments) * Math.PI * 2;
+          const wob = 0.78 + o.wobble[0] * Math.sin(a * 3 + seed) + o.wobble[1] * Math.sin(a * 5 + seed * 2.1) + o.wobble[2] * Math.sin(a * 7 + seed * 0.7);
+          const px = x + Math.cos(a) * r * wob, py = y + Math.sin(a) * r * wob;
+          if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.fill();
+      };
+      const addStamp = (x, y) => {
+        if (stamps.length >= o.maxStamps) stamps.shift();
+        stamps.push({ x, y, born: performance.now(), seed: Math.random() * Math.PI * 2, rmax: o.brushSize * (1 - o.rVary + Math.random() * o.rVary) });
+      };
+      const stampAlong = (x, y) => {
+        if (!lastPos) { addStamp(x, y); }
+        else {
+          const dx = x - lastPos.x, dy = y - lastPos.y, dist = Math.hypot(dx, dy);
+          const steps = Math.max(1, Math.ceil(dist / o.stampStep));
+          for (let i = 1; i <= steps; i++) addStamp(lastPos.x + dx * i / steps, lastPos.y + dy * i / steps);
+        }
+        lastPos = { x, y };
+      };
+      const loop = () => {
+        const w = dims.w, h = dims.h, now = performance.now();
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = 'rgba(' + mc[0] + ',' + mc[1] + ',' + mc[2] + ',' + o.maskAlpha + ')';
+        ctx.fillRect(0, 0, w, h);
+        ctx.globalCompositeOperation = 'destination-out';
+        for (let i = stamps.length - 1; i >= 0; i--) {
+          const t = (now - stamps[i].born) / o.lifetime;
+          if (t >= 1) { stamps.splice(i, 1); continue; }
+          const ease = 1 - Math.pow(1 - t, 3);
+          const r = o.rStart + (stamps[i].rmax - o.rStart) * ease;
+          carve(stamps[i].x, stamps[i].y, r, stamps[i].seed, 1 - t * t);
+        }
+        if (stamps.length) requestAnimationFrame(loop); else running = false;
+      };
+      const start = () => { if (!running) { running = true; requestAnimationFrame(loop); } };
+      const rel = (e) => { const r = canvas.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+      canvas.addEventListener('pointerenter', (e) => {
+        const p = rel(e); lastPos = p; stampAlong(p.x, p.y); start();
+        const frame = canvas.closest('.estampe-frame'); if (frame) frame.classList.add('revealed');
+        if (hint) hint.style.opacity = '0';
+      });
+      canvas.addEventListener('pointermove', (e) => { const p = rel(e); stampAlong(p.x, p.y); start(); });
+      canvas.addEventListener('pointerleave', () => { lastPos = null; });
+      resize();
+      window.addEventListener('resize', resize);
+      inkResizers.push(resize);
+      inkCleanups.push(() => window.removeEventListener('resize', resize));
+    });
+    this._inkCleanups = inkCleanups;
+    this._inkResizers = inkResizers;
+
+    // ---- Vidéo du héro : animation dès la 1re vue + son d'ambiance (vent / oiseaux) ----
+    const autoVideos = Array.from(document.querySelectorAll('video[autoplay]'));
+    const heroVideo = document.querySelector('[data-sh-video]');
+    // 1) lecture visuelle immédiate : autoplay muet (seul autorisé sans interaction)
+    const playVideos = () => autoVideos.forEach((v) => { const p = v.play(); if (p && p.catch) p.catch(() => {}); });
+    playVideos();
+    autoVideos.forEach((v) => v.addEventListener('loadeddata', () => { v.play().catch(() => {}); }, { once: true }));
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) playVideos(); });
+    // 2) au 1er geste de l'utilisateur, on rétablit le son du vent et des oiseaux de la vidéo principale
+    const enableHeroSound = () => { if (heroVideo) { heroVideo.muted = false; heroVideo.volume = 0.55; heroVideo.play().catch(() => {}); } };
+    ['pointerdown', 'touchstart', 'keydown', 'wheel'].forEach((ev) => window.addEventListener(ev, enableHeroSound, { once: true, passive: true }));
+
+    // ---- Scroll-Expand Hero (port natif du composant React ScrollExpandMedia) ----
+    // La vidéo s'agrandit au défilement ; le défilement de page est verrouillé tant
+    // que l'expansion n'est pas terminée, puis le site reprend normalement.
+    const shSection = document.querySelector('[data-scrollhero]');
+    if (shSection) {
+      const box  = shSection.querySelector('[data-sh-box]');
+      const bg   = shSection.querySelector('[data-sh-bg]');
+      const dim  = shSection.querySelector('[data-sh-dim]');
+      const t1   = shSection.querySelector('[data-sh-t1]');
+      const t2   = shSection.querySelector('[data-sh-t2]');
+      const meta = shSection.querySelector('[data-sh-meta]');
+      let progress = 0, expanded = false, touchStartY = 0;
+      let mobile = window.innerWidth < 768;
+
+      const apply = () => {
+        const p = progress;
+        const w = 300 + p * (mobile ? 650 : 1250);
+        const h = 400 + p * (mobile ? 200 : 400);
+        if (box) { box.style.width = w + 'px'; box.style.height = h + 'px'; }
+        if (this._inkResizers) this._inkResizers.forEach((r) => r());
+        if (bg)  bg.style.opacity  = String(1 - p);
+        if (dim) dim.style.opacity = String(0.5 - p * 0.3);
+        const tx = p * (mobile ? 180 : 150);
+        if (t1) t1.style.transform = 'translateX(-' + tx + 'vw)';
+        if (t2) t2.style.transform = 'translateX(' + tx + 'vw)';
+        if (meta) meta.style.opacity = String(Math.max(0, 1 - p * 2.4));
+      };
+      const setExpanded = (v) => {
+        expanded = v;
+        if (!v) window.scrollTo(0, 0);
+      };
+      const bump = (delta) => {
+        progress = Math.min(1, Math.max(0, progress + delta));
+        apply();
+        if (progress >= 1 && !expanded) setExpanded(true);
+      };
+      const onWheel = (e) => {
+        if (expanded && e.deltaY < 0 && window.scrollY <= 5) { setExpanded(false); e.preventDefault(); }
+        else if (!expanded) { e.preventDefault(); bump(e.deltaY * 0.0009); }
+      };
+      const onTouchStart = (e) => { touchStartY = e.touches[0].clientY; };
+      const onTouchMove = (e) => {
+        if (!touchStartY) return;
+        const y = e.touches[0].clientY, dy = touchStartY - y;
+        if (expanded && dy < -20 && window.scrollY <= 5) { setExpanded(false); e.preventDefault(); }
+        else if (!expanded) { e.preventDefault(); bump(dy * (dy < 0 ? 0.008 : 0.005)); touchStartY = y; }
+      };
+      const onTouchEnd = () => { touchStartY = 0; };
+      const onKey = (e) => {
+        if (!expanded && (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ' || e.key === 'Spacebar')) { e.preventDefault(); bump(0.16); }
+        else if (expanded && (e.key === 'ArrowUp' || e.key === 'PageUp') && window.scrollY <= 5) { setExpanded(false); }
+      };
+      const onScrollLock = () => { if (!expanded) window.scrollTo(0, 0); };
+      const onResizeSh = () => { mobile = window.innerWidth < 768; apply(); };
+
+      window.addEventListener('wheel', onWheel, { passive: false });
+      window.addEventListener('touchstart', onTouchStart, { passive: false });
+      window.addEventListener('touchmove', onTouchMove, { passive: false });
+      window.addEventListener('touchend', onTouchEnd);
+      window.addEventListener('keydown', onKey);
+      window.addEventListener('scroll', onScrollLock);
+      window.addEventListener('resize', onResizeSh);
+
+      // bouton « Entrer » : termine l'expansion d'un coup
+      const complete = () => { progress = 1; apply(); setExpanded(true); window.scrollTo({ top: shSection.offsetHeight, behavior: 'smooth' }); };
+      const skipBtn = shSection.querySelector('[data-sh-skip]');
+      if (skipBtn) skipBtn.addEventListener('click', complete);
+
+      // mouvement réduit : pas de verrouillage, on déploie d'emblée
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { progress = 1; apply(); expanded = true; }
+      else { apply(); window.scrollTo(0, 0); }
+
+      this._shCleanup = () => {
+        window.removeEventListener('wheel', onWheel);
+        window.removeEventListener('touchstart', onTouchStart);
+        window.removeEventListener('touchmove', onTouchMove);
+        window.removeEventListener('touchend', onTouchEnd);
+        window.removeEventListener('keydown', onKey);
+        window.removeEventListener('scroll', onScrollLock);
+        window.removeEventListener('resize', onResizeSh);
+      };
+    }
+
+    // ============ Navigation : hamburger + lien actif + dot-nav ============
+    const navEl = document.querySelector('[data-nav]');
+    const navToggle = document.querySelector('[data-navtoggle]');
+    const navLinksWrap = document.querySelector('[data-navlinks]');
+    if (navToggle && navEl) {
+      const closeNav = () => { navEl.classList.remove('nav-open'); navToggle.setAttribute('aria-expanded', 'false'); };
+      navToggle.addEventListener('click', () => {
+        const open = navEl.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      if (navLinksWrap) navLinksWrap.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeNav));
+    }
+    const navLinks = Array.from(document.querySelectorAll('[data-navlinks] a'));
+    const dotLinks = Array.from(document.querySelectorAll('[data-dotnav] a'));
+    const setActive = (id) => {
+      navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === id));
+      dotLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === id));
+    };
+    const watched = ['#top', '#chronologie', '#samourais', '#katana', '#culture', '#heritage', '#musashi']
+      .map((id) => document.querySelector(id)).filter(Boolean);
+    const secIO = new IntersectionObserver((ents) => {
+      ents.forEach((e) => { if (e.isIntersecting) setActive('#' + e.target.id); });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    watched.forEach((el) => secIO.observe(el));
+    this._secIO = secIO;
+
+    // ============ Pause des animations hors écran (perf) ============
+    const pauseIO = new IntersectionObserver((ents) => {
+      ents.forEach((e) => e.target.classList.toggle('anim-paused', !e.isIntersecting));
+    }, { threshold: 0 });
+    document.querySelectorAll('[data-hero], .marquee-band, .mus-card').forEach((el) => pauseIO.observe(el));
+    this._pauseIO = pauseIO;
+
+    // ============ Grille dynamique des concepts (inspirée de dynamic-frame-layout) ============
+    // Au survol, la cellule s'agrandit en largeur ET en hauteur (reflow bi-axial), les autres se resserrent.
+    const dyn = document.querySelector('[data-dyngrid]');
+    if (dyn && window.matchMedia('(hover: hover)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const dynCards = Array.from(dyn.querySelectorAll(':scope > .dyn-card'));
+      const EQ = 4, HOV_C = 6, HOV_R = 5;
+      const colCount = () => getComputedStyle(dyn).gridTemplateColumns.split(' ').filter(Boolean).length;
+      const tracks = (n, active, hov) => {
+        const others = (n * EQ - hov) / (n - 1);
+        const out = [];
+        for (let i = 0; i < n; i++) out.push((i === active ? hov : others) + 'fr');
+        return out.join(' ');
+      };
+      const clearDyn = () => { dyn.style.gridTemplateColumns = ''; dyn.style.gridTemplateRows = ''; };
+      dynCards.forEach((card, i) => card.addEventListener('mouseenter', () => {
+        const n = colCount();
+        if (n < 2) { clearDyn(); return; }
+        dyn.style.gridTemplateColumns = tracks(n, i % n, HOV_C);
+        // reflow vertical seulement en disposition 3 colonnes (hauteur fixe au desktop)
+        if (n === 3) {
+          const rows = Math.ceil(dynCards.length / n);
+          dyn.style.gridTemplateRows = rows > 1 ? tracks(rows, Math.floor(i / n), HOV_R) : '';
+        } else {
+          dyn.style.gridTemplateRows = '';
+        }
+      }));
+      dyn.addEventListener('mouseleave', clearDyn);
+      window.addEventListener('resize', clearDyn);
+    }
+
+    // ============ Musashi : maxime dynamique (cascade caractère par caractère au clic) ============
+    const musBtn = document.querySelector('[data-musq]');
+    if (musBtn) {
+      const elText = musBtn.querySelector('[data-mustext]');
+      const elSub = musBtn.querySelector('[data-mussub]');
+      const elSrc = document.querySelector('[data-mussource]');
+      const QUOTES = [
+        { t: "De mes actes, je n'éprouve aucun regret.", s: "Accepte chaque chose telle qu'elle est, et suis la Voie jusqu'au bout.", src: "宮本武蔵 · Dokkōdō, 1645" },
+        { t: "Considère-toi avec légèreté ; regarde le monde avec profondeur.", s: "Ne te laisse pas alourdir par ton propre reflet.", src: "宮本武蔵 · Dokkōdō, 1645" },
+        { t: "Ne recherche pas le plaisir pour lui-même.", s: "Ce qui sert la Voie suffit ; le reste encombre.", src: "宮本武蔵 · Dokkōdō, 1645" },
+        { t: "On ne distingue la vraie Voie qu'à force de pratique.", s: "Le geste répété, mille fois, devient connaissance.", src: "宮本武蔵 · Traité des cinq roues" },
+        { t: "N'agis jamais à demi.", s: "Engage-toi tout entier, ou pas du tout.", src: "宮本武蔵 · Dokkōdō, 1645" }
+      ];
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const OUT = 12, IN = 16, DUR = 300;
+      let current = 0, busy = false;
+
+      const build = (text) => {
+        elText.textContent = '';
+        const spans = [];
+        const words = text.split(' ');
+        words.forEach((word, wi) => {
+          const w = document.createElement('span');
+          w.style.display = 'inline-block'; w.style.whiteSpace = 'nowrap'; // mot insécable : pas de coupure au milieu
+          for (const ch of word) {
+            const s = document.createElement('span'); s.className = 'ch'; s.textContent = ch;
+            w.appendChild(s); spans.push(s);
+          }
+          elText.appendChild(w);
+          if (wi < words.length - 1) elText.appendChild(document.createTextNode(' '));
+        });
+        return spans;
+      };
+      build(QUOTES[0].t); // reconstruit le texte initial (déjà en dur) en caractères animables
+
+      const swap = () => {
+        if (busy) return;
+        let n; do { n = Math.floor(Math.random() * QUOTES.length); } while (n === current && QUOTES.length > 1);
+        const q = QUOTES[n]; current = n;
+        if (reduce) { build(q.t); elSub.textContent = q.s; if (elSrc) elSrc.textContent = q.src; return; }
+        busy = true;
+        const cur = elText.querySelectorAll('.ch');
+        cur.forEach((s, i) => { s.style.transitionDelay = (i * OUT) + 'ms'; s.style.transform = 'translateY(-.7em)'; s.style.opacity = '0'; });
+        elSub.style.opacity = '0'; if (elSrc) elSrc.style.opacity = '0';
+        const outWait = Math.min(DUR + cur.length * OUT, 650);
+        setTimeout(() => {
+          const spans = build(q.t);
+          spans.forEach((s, i) => { s.style.transform = 'translateY(.7em)'; s.style.opacity = '0'; s.style.transitionDelay = (i * IN) + 'ms'; });
+          void elText.offsetWidth; // force le reflow avant l'animation d'entrée
+          spans.forEach((s) => { s.style.transform = 'translateY(0)'; s.style.opacity = '1'; });
+          elSub.textContent = q.s; elSub.style.opacity = '1';
+          if (elSrc) { elSrc.textContent = q.src; elSrc.style.opacity = '1'; }
+          setTimeout(() => { busy = false; }, DUR + spans.length * IN + 60);
+        }, outWait);
+      };
+      musBtn.addEventListener('click', swap);
+    }
+
+    // ============ Son : ambiance WebAudio + SFX ============
+    const AudioFX = (() => {
+      let ctx = null, master = null, delay = null, on = false, timer = null, padNodes = [], step = 0;
+      const cache = {};
+      const hira = [0, 2, 3, 7, 8];        // gamme hirajoshi (accord traditionnel du koto)
+      const tonic = 57;                     // La3 (MIDI)
+      const PH = [                          // phrase mélodique (croches) : [degré, octave] ou null = silence
+        [0,0],[1,0],[2,0],null,[2,0],[3,0],[4,0],null,
+        [4,0],[3,0],[2,0],[1,0],[2,0],null,[0,0],null,
+        [2,0],[3,0],[4,1],null,[3,0],[2,0],[1,0],null,
+        [0,0],[2,0],[1,0],[0,0],null,[0,0],null,null
+      ];
+      const midiToFreq = (m) => 440 * Math.pow(2, (m - 69) / 12);
+      const ensure = () => {
+        if (ctx) return;
+        const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+        ctx = new AC();
+        master = ctx.createGain(); master.gain.value = 0.0001;
+        const comp = ctx.createDynamicsCompressor();   // garde-fou anti-saturation
+        const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 3600;
+        delay = ctx.createDelay(); delay.delayTime.value = 0.28;
+        const fb = ctx.createGain(); fb.gain.value = 0.26;
+        const wet = ctx.createGain(); wet.gain.value = 0.32;
+        master.connect(comp); comp.connect(lp); lp.connect(ctx.destination);
+        lp.connect(delay); delay.connect(fb); fb.connect(delay); delay.connect(wet); wet.connect(ctx.destination);
+      };
+      // synthèse de corde pincée (Karplus-Strong) -> timbre koto / shamisen
+      const ksBuffer = (freq) => {
+        const key = Math.round(freq); if (cache[key]) return cache[key];
+        const sr = ctx.sampleRate, len = Math.floor(sr * 2.2), N = Math.max(2, Math.round(sr / freq));
+        const buf = ctx.createBuffer(1, len, sr), out = buf.getChannelData(0);
+        const dl = new Float32Array(N); for (let i = 0; i < N; i++) dl[i] = Math.random() * 2 - 1;
+        let idx = 0; const damp = 0.996;
+        for (let i = 0; i < len; i++) {
+          const cur = dl[idx], nxt = dl[(idx + 1) % N];
+          out[i] = cur; dl[idx] = damp * 0.5 * (cur + nxt); idx = (idx + 1) % N;
+        }
+        cache[key] = buf; return buf;
+      };
+      const pluck = (midi, vel) => {
+        if (!ctx) return;
+        const src = ctx.createBufferSource(); src.buffer = ksBuffer(midiToFreq(midi));
+        const g = ctx.createGain(); g.gain.value = vel;
+        src.connect(g); g.connect(master); src.start();
+      };
+      const tick = () => {
+        const note = PH[step % PH.length];
+        if (note) pluck(tonic + hira[note[0]] + 12 * note[1], 0.2 + Math.random() * 0.12);
+        if (step % 8 === 0) pluck(tonic - 12, 0.16);   // basse douce du koto
+        step++;
+      };
+      const start = () => {
+        ensure(); if (!ctx) return;
+        if (ctx.state === 'suspended') ctx.resume();
+        [0, 7].forEach((semi) => {                       // nappe chaude et douce
+          const o = ctx.createOscillator(); o.type = 'sine'; o.frequency.value = midiToFreq(tonic - 12 + semi);
+          const g = ctx.createGain(); g.gain.value = 0.04;
+          o.connect(g); g.connect(master); o.start(); padNodes.push(o);
+        });
+        master.gain.cancelScheduledValues(ctx.currentTime);
+        master.gain.linearRampToValueAtTime(0.6, ctx.currentTime + 1.4);
+        step = 0; tick(); timer = setInterval(tick, 360);
+        on = true;
+      };
+      const stop = () => {
+        if (!ctx) return;
+        master.gain.cancelScheduledValues(ctx.currentTime);
+        master.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 0.7);
+        clearInterval(timer); timer = null;
+        const old = padNodes; padNodes = [];
+        setTimeout(() => old.forEach((n) => { try { n.stop(); } catch (e) {} }), 800);
+        on = false;
+      };
+      const shing = () => {
+        if (!on || !ctx) return;
+        const now = ctx.currentTime;
+        const buf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * 0.4), ctx.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, 2);
+        const src = ctx.createBufferSource(); src.buffer = buf;
+        const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 0.9;
+        bp.frequency.setValueAtTime(1700, now); bp.frequency.exponentialRampToValueAtTime(5400, now + 0.2);
+        const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, now);
+        g.gain.linearRampToValueAtTime(0.45, now + 0.02); g.gain.exponentialRampToValueAtTime(0.0008, now + 0.4);
+        src.connect(bp); bp.connect(g); g.connect(master); src.start(now);
+      };
+      return { toggle: () => { ensure(); if (on) { stop(); return false; } start(); return true; }, shing, isOn: () => on };
+    })();
+    this._sfx = AudioFX;
+    this._stopSound = () => { if (AudioFX.isOn()) AudioFX.toggle(); };
+    const soundBtn = document.querySelector('[data-soundbtn]');
+    const soundLabel = document.querySelector('[data-soundlabel]');
+    if (soundBtn) {
+      soundBtn.addEventListener('click', () => {
+        const isOn = AudioFX.toggle();
+        soundBtn.classList.toggle('playing', isOn);
+        soundBtn.setAttribute('aria-pressed', isOn ? 'true' : 'false');
+        if (soundLabel) soundLabel.textContent = isOn ? 'Ambiance ✓' : 'Ambiance';
+      });
+    }
+
+    // ============ Timeline : filtres + fiche détaillée + mini-carte ============
+    const eraCards = Array.from(document.querySelectorAll('[data-era-card]'));
+    const filterBtns = Array.from(document.querySelectorAll('[data-tlfilter] [data-filter]'));
+    filterBtns.forEach((btn) => btn.addEventListener('click', () => {
+      const f = btn.getAttribute('data-filter');
+      filterBtns.forEach((b) => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+      eraCards.forEach((c) => c.classList.toggle('tl-dim', f !== 'all' && c.getAttribute('data-cat') !== f));
+    }));
+
+    const JP = { archipel:[0.5,0.5], kyushu:[0.2,0.85], kansai:[0.42,0.62], kanto:[0.66,0.45], central:[0.55,0.55], hokkaido:[0.82,0.1] };
+    const drawEraMap = (svg, region, color) => {
+      const p = JP[region] || JP.archipel;
+      const cx = (8 + p[0] * 48).toFixed(0), cy = (6 + p[1] * 78).toFixed(0);
+      svg.innerHTML =
+        '<path d="M30 5 Q41 15 36 25 Q49 30 43 43 Q56 51 45 64 Q40 82 23 85 Q13 75 22 64 Q9 57 18 47 Q7 39 18 31 Q13 17 30 5 Z" fill="rgba(30,58,82,.12)" stroke="#1e3a52" stroke-width="1.1"/>' +
+        '<circle cx="' + cx + '" cy="' + cy + '" r="4.5" fill="' + (color || '#b5402c') + '"><animate attributeName="r" values="3.5;7;3.5" dur="1.8s" repeatCount="indefinite"/></circle>';
+    };
+
+    const eraModal = document.querySelector('[data-eramodal]');
+    if (eraModal && eraCards.length) {
+      const put = (sel, txt) => { const el = eraModal.querySelector(sel); if (el) el.textContent = txt; };
+      let lastFocus = null;
+      const openEra = (card) => {
+        lastFocus = card;
+        const color = card.getAttribute('data-color') || '#b5402c';
+        put('[data-era-no]', card.getAttribute('data-no'));
+        put('[data-era-label]', card.getAttribute('data-eralabel'));
+        put('[data-era-name]', card.getAttribute('data-name'));
+        put('[data-era-dates]', card.getAttribute('data-dates'));
+        put('[data-era-ambiance]', card.getAttribute('data-ambiance'));
+        put('[data-era-detail]', card.getAttribute('data-detail'));
+        put('[data-era-emblem]', card.getAttribute('data-emblem'));
+        put('[data-era-kanji]', card.getAttribute('data-kanji'));
+        const lab = eraModal.querySelector('[data-era-label]'); if (lab) lab.style.background = color;
+        const noEl = eraModal.querySelector('[data-era-no]'); if (noEl) noEl.style.color = color;
+        const dEl = eraModal.querySelector('[data-era-dates]'); if (dEl) dEl.style.color = color;
+        const mp = eraModal.querySelector('[data-era-map]'); if (mp) drawEraMap(mp, card.getAttribute('data-region'), color);
+        eraModal.classList.add('open'); eraModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        const cl = eraModal.querySelector('[data-eraclose]'); if (cl) cl.focus();
+      };
+      const closeEra = () => {
+        eraModal.classList.remove('open'); eraModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocus) lastFocus.focus();
+      };
+      eraCards.forEach((card) => {
+        let x0 = 0, y0 = 0, t0 = 0;
+        card.addEventListener('pointerdown', (e) => { x0 = e.clientX; y0 = e.clientY; t0 = Date.now(); });
+        card.addEventListener('pointerup', (e) => {
+          if (Math.hypot(e.clientX - x0, e.clientY - y0) < 6 && Date.now() - t0 < 500) openEra(card);
+        });
+        card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEra(card); } });
+      });
+      eraModal.querySelector('[data-eraclose]').addEventListener('click', closeEra);
+      eraModal.addEventListener('click', (e) => { if (e.target === eraModal) closeEra(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && eraModal.classList.contains('open')) closeEra(); });
+    }
+  }
+
+  componentWillUnmount() {
+    if (this._secIO) this._secIO.disconnect();
+    if (this._pauseIO) this._pauseIO.disconnect();
+    if (this._stopSound) this._stopSound();
+    if (this._countIO) this._countIO.disconnect();
+    if (this._cutIO) this._cutIO.disconnect();
+    if (this._inkCleanups) this._inkCleanups.forEach((fn) => fn());
+    if (this._shCleanup) this._shCleanup();
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+  }
+}
+</script>
+</body>
+</html>
