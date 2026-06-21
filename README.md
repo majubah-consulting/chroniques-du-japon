@@ -35,10 +35,10 @@ Proposer de nouvelles fiches historiques ou culturelles.
 Optimiser les images (compression WebP).
 Pour contribuer, effectuez un fork du dépôt, créez une branche, apportez vos modifications puis ouvrez une Pull Request.
 Crédits
-Contenu et rédaction : Chroniques du Japon (à personnaliser avec votre nom ou celui de votre équipe).
+Réalisé par Majubah Consulting.
 Images et illustrations : sources libres de droits ou mentionnées dans les pages.
 Police Shippori Mincho par Google Fonts.
 Police EB Garamond par Google Fonts.
 Icônes et éléments graphiques inspirés de la tradition japonaise.
 Licence
-Contenu et textes : © Chroniques du Japon — tous droits réservés. Remplacez par une licence formelle (MIT, Creative Commons, etc.) si vous souhaitez autoriser explicitement la réutilisation.
+Contenu et textes : © Majubah Consulting, tous droits réservés. Remplacez par une licence formelle (MIT, Creative Commons, etc.) si vous souhaitez autoriser explicitement la réutilisation.
