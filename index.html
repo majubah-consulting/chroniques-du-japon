@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- SEO statique : dupliqué depuis le <helmet> ci-dessous afin que les robots
+<!-- SEO statique : dupliqué depuis le bloc helmet ci-dessous afin que les robots
      d'indexation et les aperçus de partage (Facebook, X, LinkedIn…), qui
      n'exécutent pas le JavaScript, voient le titre, la description et l'image
      avant le rendu React. -->
@@ -17,7 +17,7 @@
 <meta property="og:image" content="estampes/estame3D.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Sans JavaScript, le runtime ne s'exécute pas : on masque le gabarit brut
-     <x-dc> et on affiche le message de repli ci-dessous. -->
+     et on affiche le message de repli plus bas dans le corps de la page. -->
 <noscript><style>x-dc{display:none!important}</style></noscript>
 <!-- React/ReactDOM hébergés en local et chargés AVANT support.js : le runtime
      détecte window.React et n'appelle donc jamais le CDN unpkg (qui, en cas de
