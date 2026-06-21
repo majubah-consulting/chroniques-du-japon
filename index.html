@@ -19,6 +19,11 @@
 <!-- Sans JavaScript, le runtime ne s'exécute pas : on masque le gabarit brut
      <x-dc> et on affiche le message de repli ci-dessous. -->
 <noscript><style>x-dc{display:none!important}</style></noscript>
+<!-- React/ReactDOM hébergés en local et chargés AVANT support.js : le runtime
+     détecte window.React et n'appelle donc jamais le CDN unpkg (qui, en cas de
+     blocage réseau ou d'échec, laissait la page blanche). -->
+<script src="./vendor/react-18.3.1.production.min.js"></script>
+<script src="./vendor/react-dom-18.3.1.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
