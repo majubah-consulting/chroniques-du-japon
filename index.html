@@ -1,11 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- SEO statique : dupliqué depuis le <helmet> ci-dessous afin que les robots
+     d'indexation et les aperçus de partage (Facebook, X, LinkedIn…), qui
+     n'exécutent pas le JavaScript, voient le titre, la description et l'image
+     avant le rendu React. -->
+<title>Chroniques du Japon — Le Japon des samouraïs</title>
+<meta name="description" content="Une traversée visuelle de la civilisation japonaise : des mythes fondateurs au Japon contemporain, en passant par l'âge des samouraïs, la voie du katana et l'esprit de Miyamoto Musashi.">
+<meta name="theme-color" content="#0c1f30">
+<link rel="canonical" href="index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chroniques du Japon — Le Japon des samouraïs">
+<meta property="og:description" content="Une traversée visuelle de la civilisation japonaise : des mythes fondateurs au Japon contemporain, des samouraïs au katana.">
+<meta property="og:image" content="estampes/estame3D.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Sans JavaScript, le runtime ne s'exécute pas : on masque le gabarit brut
+     <x-dc> et on affiche le message de repli ci-dessous. -->
+<noscript><style>x-dc{display:none!important}</style></noscript>
 <script src="./support.js"></script>
 </head>
 <body>
+<noscript>
+  <div style="max-width:42rem;margin:18vh auto;padding:0 1.5rem;font-family:'EB Garamond',Georgia,serif;color:#1f1a14;text-align:center;line-height:1.6">
+    <h1 style="font-family:'Shippori Mincho',serif;color:#b5402c">Chroniques du Japon</h1>
+    <p>Cette page d'accueil interactive nécessite JavaScript pour afficher la chronologie animée.</p>
+    <p>Vous pouvez néanmoins explorer <a href="ressources.html" style="color:#b5402c">les six voies japonaises</a>, consultables sans JavaScript.</p>
+  </div>
+</noscript>
 <x-dc>
 <helmet>
 <title>Chroniques du Japon — Le Japon des samouraïs</title>
